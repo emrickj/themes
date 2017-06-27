@@ -1,6 +1,7 @@
 # Website Theme Collection
 A collection of responsive stand-alone website themes using current CSS Frameworks.  Some require PHP 7 to run.  Sample website file(s) can be downloaded from emrickj/vertical-button-theme repository.
 
+```text
 theme1      Vertical Button
 theme1af    Vertical Button, fixed
 theme1at    Vertical Button, affix
