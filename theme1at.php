@@ -29,7 +29,8 @@
    //print_r($xml);
    //echo $xml->image[1];
    
-   require 'dspmenu_nb.php';
+   require 'dspmenu.php';
+   require 'dspcnt.php';
 ?>
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>
@@ -78,14 +79,7 @@ t1 { white-space: pre-wrap;}
                    }
                    ?>
                    <ul class="dropdown-menu" role="menu">
-                   <?php
-                   for($i=1;$i<=6;$i++) {
-                     if($i==$p && $w=="2" && $name=="") $bs=" class='active'"; else $bs="";
-                     if(strlen($xml2->page[$i-1]->name)>2) 
-                        echo "<li".$bs."><a rel='nofollow' href='?u=".ltrim($b,"_")."&w=2&p=".$i."'>"
-                        . str_replace('"fa','"fa fa-fw',ic_html($xml2->page[$i-1]->name)) . "</a></li>\n";
-                   }
-                   ?>
+                   <?php displayMenu($p,"active",$w,2) ?>
                    </ul>
                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                    <?php echo strip_tags($xml2->title) ?> <span class="caret"></span></button>
@@ -103,28 +97,10 @@ t1 { white-space: pre-wrap;}
                               echo "<img src='".$xml->page[$p-1]->image."' style='width: 100%;height: auto;'>\n";
                               echo "<br>\n";
                            }
-                        if ($name=="") {
-                           if ($w=="1") echo str_replace('"?p=','"?u='.ltrim($b,'_').'&amp;p=',trim($xml->page[$p-1]->contents));
-                           if ($w=="2") echo str_replace('"?p=','"?u='.ltrim($b,'_').'&amp;w=2&amp;p=',trim($xml2->page[$p-1]->contents));
-                        } else {
-                            $username="username";
-                            $password="password";
-                            $database="database";
-
-                            if ($name=="" || ($phone=="" && $email=="")) {
-                               echo "<b>Missing Name or Contact Info.</b>";
-                            } else {
-                               $link = mysqli_connect("sql209.byethost4.com",$username,$password,$database);
-                               //@mysql_select_db($database) or die( "Unable to select database");
-
-                               $query = "INSERT INTO idscts (name,phone,email,message) VALUES ('$name','$phone','$email','$message')";
-                               mysqli_query($link,$query);
-
-                               mysqli_close($link);
-
-                               echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
-                            }
-                           }
+                        if($name=="") dispContents($p,ltrim($b,"_"),$w);
+                        else if(sendDb($name,$phone,$email,$message))
+                                echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
+                             else echo "<b>Missing Name or Contact Info.</b>";
                         echo "\n";
                         if((($xml->page[$p-1]['type']=="form" && $w=="1") || 
                            ($xml2->page[$p-1]['type']=="form" && $w=="2")) && $name=="") {

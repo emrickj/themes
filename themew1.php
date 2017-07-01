@@ -32,6 +32,7 @@
       return $rt;
    }
 
+   require 'dspcnt.php';
    //if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
    $mps="http://";
    $mainpage = $mps.$_SERVER['HTTP_HOST'].str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
@@ -83,34 +84,20 @@ t1 { white-space: pre-wrap;}
   <h1><?php echo $xml->title ?></h1>
 </div>
 <?php
-if(strlen($xml->page[$p-1]->image)>4)
-   echo "<img class='w3-image' src='".$xml->page[$p-1]->image."' style='width:100%'>\n";
+if ($w=="1")
+   if(strlen($xml->page[$p-1]->image)>4)
+      echo "<img class='w3-image' src='".$xml->page[$p-1]->image."' style='width:100%'>\n";
+if ($w=="2")
+   if(strlen($xml2->page[$p-1]->image)>4)
+      echo "<img class='w3-image' src='".$xml2->page[$p-1]->image."' style='width:100%'>\n";
 ?>
 
 <div class="w3-container">
 <?php
-  if ($name=="") {
-     if ($w=="1") echo str_replace('"?p=','"?u='.ltrim($b,'_').'&amp;p=',trim($xml->page[$p-1]->contents));
-     if ($w=="2") echo str_replace('"?p=','"?u='.ltrim($b,'_').'&amp;w=2&amp;p=',trim($xml2->page[$p-1]->contents));
-  } else {
-      $username="username";
-      $password="password";
-      $database="database";
-
-      if ($name=="" || ($phone=="" && $email=="")) {
-         echo "<b>Missing Name or Contact Info.</b>";
-      } else {
-         $link = mysqli_connect("sql209.byethost4.com",$username,$password,$database);
-         //@mysql_select_db($database) or die( "Unable to select database");
-
-         $query = "INSERT INTO idscts (name,phone,email,message) VALUES ('$name','$phone','$email','$message')";
-         mysqli_query($link,$query);
-
-         mysqli_close($link);
-
-         echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
-      }
-     }
+  if($name=="") dispContents($p,ltrim($b,"_"),$w);
+  else if(sendDb($name,$phone,$email,$message))
+          echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
+       else echo "<b>Missing Name or Contact Info.</b>";
   echo "\n";
   if((($xml->page[$p-1]['type']=="form" && $w=="1") || 
      ($xml2->page[$p-1]['type']=="form" && $w=="2")) && $name=="") {

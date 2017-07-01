@@ -37,6 +37,7 @@
       return $rt;
    }
 
+   require 'dspcnt.php';
    //if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
 ?>
 	<title><?php echo strip_tags($xml->title) ?></title>
@@ -174,29 +175,16 @@ body, html {
               </button></p>
            </form>
 <?php
-          if ($name!="") {
-            $username="username";
-            $password="password";
-            $database="database";
-
-            if ($name=="" || ($phone=="" && $email=="")) {
-               echo "<div class='w3-panel w3-blue'>";
-               echo "<b>Missing Name or Contact Info.</b>";
-               echo "</div>";
-            } else {
-               $link = mysqli_connect("sql209.byethost4.com",$username,$password,$database);
-               //@mysql_select_db($database) or die( "Unable to select database");
-
-               $query = "INSERT INTO idscts (name,phone,email,message) VALUES ('$name','$phone','$email','$message')";
-               mysqli_query($link,$query);
-
-               mysqli_close($link);
-               
-               echo "<div class='w3-panel w3-green'>";
+          if ($name!="")
+            if(sendDb($name,$phone,$email,$message)) {
+               echo "<div class='w3-panel w3-green' id='alert'>";
                echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
                echo "</div>";
-             }
-          }?>
+            } else {
+               echo "<div class='w3-panel w3-blue' id='alert'>";
+               echo "<b>Missing Name or Contact Info.</b>";
+               echo "</div>";
+            }?>
          </div>
          </div><?php
      }

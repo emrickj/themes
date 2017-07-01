@@ -32,7 +32,7 @@
    //print_r($xml);
    //echo $xml->image[1];
 
-   require 'dspmenu_nb.php';
+   require 'dspmenu.php';
    require 'dspcnt.php';
 ?>
 	<title><?php echo strip_tags($xml->title) ?></title>
@@ -83,7 +83,9 @@ t1 { white-space: pre-wrap;}
          </div>
          <div class="col-sm-8">
                      <?php
-                        dispContents(ltrim($b,"_"),"1",$p);
+                        if($name=="") dispContents($p,ltrim($b,"_"));
+                           else if(sendEmail($name,$email,$subject,$message))
+                              echo "Contact Information Submitted.  Thank you.";
                         if($xml->page[$p-1]['type']=="form" && $name=="") {
                      ?>
                            <form class="form-horizontal" role="form" method="post">
