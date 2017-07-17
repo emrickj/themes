@@ -3,7 +3,7 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 
 | Name | Description |
 | --- | --- |
-| theme1 | Vertical Button |
+| [theme1](theme1.php) | Vertical Button |
 | theme1af | Vertical Button, fixed |
 | theme1at | Vertical Button, affix |
 | theme2 | Navigation Bar |
