@@ -23,4 +23,14 @@ function displayMenu($pn,$as="active",$wn=1,$ws=1) {
    }
 }
 
+function displayMenu_a() {
+   $x = $GLOBALS['xml'];
+   for($i=1;$i<=6;$i++) {
+      if(strlen($x->page[$i-1]->name)>2) {
+         echo "<li><a href='#p".$i."'>" . str_replace('"fa','"fa fa-fw',ic_html($x->page[$i-1]->name))
+               . "</a></li>\n";
+      }
+   }   
+}
+
 ?>
