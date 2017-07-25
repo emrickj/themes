@@ -3,8 +3,8 @@
 function dispContents($pn,$u="",$wn=1) {
    $x = $GLOBALS['xml'];
    $x2 = $GLOBALS['xml2'];
-   if (intval($wn)==1) echo str_replace("?p=","?u=".$u."&amp;p=",trim($x->page[$pn-1]->contents));
-   if (intval($wn)==2) echo str_replace("?p=","?u=".$u."&amp;w=2&amp;p=",trim($x2->page[$pn-1]->contents));
+   if (intval($wn)==1) echo str_replace('"?p=','"?u='.$u.'&amp;p=',trim($x->page[$pn-1]->contents));
+   if (intval($wn)==2) echo str_replace('"?p=','"?u='.$u.'&amp;w=2&amp;p=',trim($x2->page[$pn-1]->contents));
 }
 
 function sendEmail($n,$e,$s,$m) {
