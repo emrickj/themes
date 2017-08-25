@@ -16,6 +16,7 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [theme4](theme4.php) | Scrollspy Vertical Menu |
 | [theme4a](theme4a.php) | Scrollspy Vertical Menu 2 |
 | [theme4b](theme4b.php) | Scrollspy Vertical Menu 3 |
+| [theme5](theme5.php) | Horizontal Menu |
 | [themew1](themew1.php) | W3.CSS Sidebar |
 | [themew1rd](themew1rd.php) | W3.CSS Sidebar, red |
 | [themew1pk](themew1pk.php) | W3.CSS Sidebar, pink |
