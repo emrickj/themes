@@ -11,6 +11,14 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [theme2in](theme2in.php) | Navigation Bar, inverted | Bootstrap 3 |
 | [theme2if](theme2if.php) | Navigation Bar, inverted, fixed top | Bootstrap 3 |
 | [theme2ia](theme2ia.php) | Navigation Bar, inverted, affix | Bootstrap 3 |
+| [theme2prm](theme2prm.php) | Navigation Bar, Blue | Bootstrap 4 beta |
+| [theme2suc](theme2suc.php) | Navigation Bar, Green | Bootstrap 4 beta |
+| [theme2inf](theme2inf.php) | Navigation Bar, Cyan | Bootstrap 4 beta |
+| [theme2wrn](theme2wrn.php) | Navigation Bar, Yellow | Bootstrap 4 beta |
+| [theme2dng](theme2dng.php) | Navigation Bar, Red | Bootstrap 4 beta |
+| [theme2sec](theme2sec.php) | Navigation Bar, Gray | Bootstrap 4 beta |
+| [theme2drk](theme2drk.php) | Navigation Bar, Dark | Bootstrap 4 beta |
+| [theme2lit](theme2lit.php) | Navigation Bar, Light | Bootstrap 4 beta |
 | [theme3](theme3.php) | Scrollspy | Bootstrap 3 |
 | [theme3a](theme3a.php) | Scrollspy & Affix | Bootstrap 3 |
 | [theme4](theme4.php) | Scrollspy Vertical Menu | Bootstrap 3 |
