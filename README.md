@@ -11,14 +11,22 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [theme2in](theme2in.php) | Navigation Bar, inverted | Bootstrap 3 |
 | [theme2if](theme2if.php) | Navigation Bar, inverted, fixed top | Bootstrap 3 |
 | [theme2ia](theme2ia.php) | Navigation Bar, inverted, affix | Bootstrap 3 |
-| [theme2prm](theme2prm.php) | Navigation Bar, Blue | Bootstrap 4 beta |
-| [theme2suc](theme2suc.php) | Navigation Bar, Green | Bootstrap 4 beta |
-| [theme2inf](theme2inf.php) | Navigation Bar, Cyan | Bootstrap 4 beta |
-| [theme2wrn](theme2wrn.php) | Navigation Bar, Yellow | Bootstrap 4 beta |
-| [theme2dng](theme2dng.php) | Navigation Bar, Red | Bootstrap 4 beta |
-| [theme2sec](theme2sec.php) | Navigation Bar, Gray | Bootstrap 4 beta |
-| [theme2drk](theme2drk.php) | Navigation Bar, Dark | Bootstrap 4 beta |
-| [theme2lit](theme2lit.php) | Navigation Bar, Light | Bootstrap 4 beta |
+| [theme2prm](theme2prm.php) | Navigation Bar, blue | Bootstrap 4 beta |
+| [theme2suc](theme2suc.php) | Navigation Bar, green | Bootstrap 4 beta |
+| [theme2inf](theme2inf.php) | Navigation Bar, cyan | Bootstrap 4 beta |
+| [theme2wrn](theme2wrn.php) | Navigation Bar, yellow | Bootstrap 4 beta |
+| [theme2dng](theme2dng.php) | Navigation Bar, red | Bootstrap 4 beta |
+| [theme2sec](theme2sec.php) | Navigation Bar, gray | Bootstrap 4 beta |
+| [theme2drk](theme2drk.php) | Navigation Bar, dark | Bootstrap 4 beta |
+| [theme2lit](theme2lit.php) | Navigation Bar, light | Bootstrap 4 beta |
+| [theme2fprm](theme2fprm.php) | Navigation Bar, fixed-top, blue | Bootstrap 4 beta |
+| [theme2fsuc](theme2fsuc.php) | Navigation Bar, fixed-top, green | Bootstrap 4 beta |
+| [theme2finf](theme2finf.php) | Navigation Bar, fixed-top, cyan | Bootstrap 4 beta |
+| [theme2fwrn](theme2fwrn.php) | Navigation Bar, fixed-top, yellow | Bootstrap 4 beta |
+| [theme2fdng](theme2fdng.php) | Navigation Bar, fixed-top, red | Bootstrap 4 beta |
+| [theme2fsec](theme2fsec.php) | Navigation Bar, fixed-top, gray | Bootstrap 4 beta |
+| [theme2fdrk](theme2fdrk.php) | Navigation Bar, fixed-top, dark | Bootstrap 4 beta |
+| [theme2flit](theme2flit.php) | Navigation Bar, fixed-top, light | Bootstrap 4 beta |
 | [theme3](theme3.php) | Scrollspy | Bootstrap 3 |
 | [theme3a](theme3a.php) | Scrollspy & Affix | Bootstrap 3 |
 | [theme4](theme4.php) | Scrollspy Vertical Menu | Bootstrap 3 |
