@@ -27,11 +27,11 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [theme2fsec](theme2fsec.php) | Navigation Bar, fixed-top, gray | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2fsec.php?u=500) |
 | [theme2fdrk](theme2fdrk.php) | Navigation Bar, fixed-top, dark | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2fdrk.php?u=500) |
 | [theme2flit](theme2flit.php) | Navigation Bar, fixed-top, light | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2flit.php?u=500) |
-| [theme3](theme3.php) | Scrollspy | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme3.php?u=500) |
-| [theme3a](theme3a.php) | Scrollspy & Affix | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme3a.php?u=500) |
-| [theme4](theme4.php) | Scrollspy Vertical Menu | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme4.php?u=500) |
-| [theme4a](theme4a.php) | Scrollspy Vertical Menu 2 | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme4a.php?u=500) |
-| [theme4b](theme4b.php) | Scrollspy Vertical Menu 3 | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme4b.php?u=500) |
+| [theme3](theme3.php) | Scrollspy | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme3.php?u=501) |
+| [theme3a](theme3a.php) | Scrollspy & Affix | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme3a.php?u=501) |
+| [theme4](theme4.php) | Scrollspy Vertical Menu | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme4.php?u=501) |
+| [theme4a](theme4a.php) | Scrollspy Vertical Menu 2 | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme4a.php?u=501) |
+| [theme4b](theme4b.php) | Scrollspy Vertical Menu 3 | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme4b.php?u=501) |
 | [theme5](theme5.php) | Horizontal Menu | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme5.php?u=500) |
 | [themew1](themew1.php) | Sidebar | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1.php?u=500) |
 | [themew1rd](themew1rd.php) | Sidebar, red | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1rd.php?u=500) |
