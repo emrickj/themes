@@ -63,4 +63,3 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [themew3](themew3.php) | Marketing | W3.CSS |
 | [themew7](themew7.php) | Parallax | W3.CSS |
 | [themew4](themew4.php) | Startup | W3.CSS |
-<a target="_blank" href="http://www.gem-editor.com">test</a>
