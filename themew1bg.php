@@ -99,7 +99,9 @@ if ($w=="2")
   else if(sendDb($name,$phone,$email,$message))
           echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
        else echo "<b>Missing Name or Contact Info.</b>";
-  echo "\n";
+  echo "\n";?>
+</div>
+<?php
   if((($xml->page[$p-1]['type']=="form" && $w=="1") || 
      ($xml2->page[$p-1]['type']=="form" && $w=="2")) && $name=="") {
 ?>
@@ -130,13 +132,12 @@ if ($w=="2")
   if($xml->page[$p-1]['type']=="comments" && $w=="1" && $name=="") {
 ?>
      <!-- begin htmlcommentbox.com -->
-     <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
-     <link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/default/skin.css" />
-     <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+     <div class="w3-container w3-theme-l3" id="HCB_comment_box"><a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+     <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/default/skin.css" />
+     <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
      <!-- end htmlcommentbox.com --><?php
   }
 ?>
-</div>
 <div class="w3-container w3-theme-dark">
 <center><h6>This website was created using <a href="https://www.gem-editor.com">GEM</a>.</h6></center>
 </div>
