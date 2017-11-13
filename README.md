@@ -5,12 +5,12 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | --- | --- | --- | --- |
 | [theme1](theme1.php) | Vertical Button | Bootstrap 3 | |
 | [theme1af](theme1af.php) | Vertical Button, fixed | Bootstrap 3 | |
-| [theme1at](theme1at.php) | Vertical Button, affix | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme1at.php?u=500) |
-| [theme2](theme2.php) | Navigation Bar | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme2.php?u=500) |
-| [theme2fi](theme2fi.php) | Navigation Bar, fixed top | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme2fi.php?u=500) |
-| [theme2in](theme2in.php) | Navigation Bar, inverted | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme2in.php?u=500) |
-| [theme2if](theme2if.php) | Navigation Bar, inverted, fixed top | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme2if.php?u=500) |
-| [theme2ia](theme2ia.php) | Navigation Bar, inverted, affix | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme2ia.php?u=500) |
+| [theme1at](theme1at.php) | Vertical Button, affix | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme1at.php?u=500" target="_blank">Preview</a> |
+| [theme2](theme2.php) | Navigation Bar | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme2.php?u=500" target="_blank">Preview</a> |
+| [theme2fi](theme2fi.php) | Navigation Bar, fixed top | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme2fi.php?u=500" target="_blank">Preview</a> |
+| [theme2in](theme2in.php) | Navigation Bar, inverted | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme2in.php?u=500" target="_blank">Preview</a> |
+| [theme2if](theme2if.php) | Navigation Bar, inverted, fixed top | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme2if.php?u=500" target="_blank">Preview</a> |
+| [theme2ia](theme2ia.php) | Navigation Bar, inverted, affix | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme2ia.php?u=500" target="_blank">Preview</a> |
 | [theme2prm](theme2prm.php) | Navigation Bar, blue | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2prm.php?u=500) |
 | [theme2suc](theme2suc.php) | Navigation Bar, green | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2suc.php?u=500) |
 | [theme2inf](theme2inf.php) | Navigation Bar, cyan | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2inf.php?u=500) |
@@ -27,12 +27,12 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [theme2fsec](theme2fsec.php) | Navigation Bar, fixed-top, gray | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2fsec.php?u=500) |
 | [theme2fdrk](theme2fdrk.php) | Navigation Bar, fixed-top, dark | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2fdrk.php?u=500) |
 | [theme2flit](theme2flit.php) | Navigation Bar, fixed-top, light | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2flit.php?u=500) |
-| [theme3](theme3.php) | Scrollspy | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme3.php?u=501) |
-| [theme3a](theme3a.php) | Scrollspy & Affix | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme3a.php?u=501) |
-| [theme4](theme4.php) | Scrollspy Vertical Menu | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme4.php?u=501) |
-| [theme4a](theme4a.php) | Scrollspy Vertical Menu 2 | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme4a.php?u=501) |
-| [theme4b](theme4b.php) | Scrollspy Vertical Menu 3 | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme4b.php?u=501) |
-| [theme5](theme5.php) | Horizontal Menu | Bootstrap 3 | [Preview](https://www.gem-editor.com/gwc/theme5.php?u=500) |
+| [theme3](theme3.php) | Scrollspy | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme3.php?u=501" target="_blank">Preview</a> |
+| [theme3a](theme3a.php) | Scrollspy & Affix | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme3a.php?u=501" target="_blank">Preview</a> |
+| [theme4](theme4.php) | Scrollspy Vertical Menu | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme4.php?u=501" target="_blank">Preview</a> |
+| [theme4a](theme4a.php) | Scrollspy Vertical Menu 2 | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme4a.php?u=501" target="_blank">Preview</a> |
+| [theme4b](theme4b.php) | Scrollspy Vertical Menu 3 | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme4b.php?u=501" target="_blank">Preview</a> |
+| [theme5](theme5.php) | Horizontal Menu | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme5.php?u=500" target="_blank">Preview</a> |
 | [themew1](themew1.php) | Sidebar | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1.php?u=501) |
 | [themew1rd](themew1rd.php) | Sidebar, red | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1rd.php?u=501) |
 | [themew1pk](themew1pk.php) | Sidebar, pink | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1pk.php?u=501) |
