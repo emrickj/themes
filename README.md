@@ -11,22 +11,22 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [theme2in](theme2in.php) | Navigation Bar, inverted | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme2in.php?u=500" target="_blank">Preview</a> |
 | [theme2if](theme2if.php) | Navigation Bar, inverted, fixed top | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme2if.php?u=500" target="_blank">Preview</a> |
 | [theme2ia](theme2ia.php) | Navigation Bar, inverted, affix | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme2ia.php?u=500" target="_blank">Preview</a> |
-| [theme2prm](theme2prm.php) | Navigation Bar, blue | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2prm.php?u=500) |
-| [theme2suc](theme2suc.php) | Navigation Bar, green | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2suc.php?u=500) |
-| [theme2inf](theme2inf.php) | Navigation Bar, cyan | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2inf.php?u=500) |
-| [theme2wrn](theme2wrn.php) | Navigation Bar, yellow | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2wrn.php?u=500) |
-| [theme2dng](theme2dng.php) | Navigation Bar, red | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2dng.php?u=500) |
-| [theme2sec](theme2sec.php) | Navigation Bar, gray | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2sec.php?u=500) |
-| [theme2drk](theme2drk.php) | Navigation Bar, dark | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2drk.php?u=500) |
-| [theme2lit](theme2lit.php) | Navigation Bar, light | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2lit.php?u=500) |
-| [theme2fprm](theme2fprm.php) | Navigation Bar, fixed-top, blue | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2fprm.php?u=500) |
-| [theme2fsuc](theme2fsuc.php) | Navigation Bar, fixed-top, green | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2fsuc.php?u=500) |
-| [theme2finf](theme2finf.php) | Navigation Bar, fixed-top, cyan | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2finf.php?u=500) |
-| [theme2fwrn](theme2fwrn.php) | Navigation Bar, fixed-top, yellow | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2fwrn.php?u=500) |
-| [theme2fdng](theme2fdng.php) | Navigation Bar, fixed-top, red | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2fdng.php?u=500) |
-| [theme2fsec](theme2fsec.php) | Navigation Bar, fixed-top, gray | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2fsec.php?u=500) |
-| [theme2fdrk](theme2fdrk.php) | Navigation Bar, fixed-top, dark | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2fdrk.php?u=500) |
-| [theme2flit](theme2flit.php) | Navigation Bar, fixed-top, light | Bootstrap 4 beta | [Preview](https://www.gem-editor.com/gwc/theme2flit.php?u=500) |
+| [theme2prm](theme2prm.php) | Navigation Bar, blue | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2prm.php?u=500" target="_blank">Preview</a> |
+| [theme2suc](theme2suc.php) | Navigation Bar, green | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2suc.php?u=500" target="_blank">Preview</a> |
+| [theme2inf](theme2inf.php) | Navigation Bar, cyan | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2inf.php?u=500" target="_blank">Preview</a> |
+| [theme2wrn](theme2wrn.php) | Navigation Bar, yellow | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2wrn.php?u=500" target="_blank">Preview</a> |
+| [theme2dng](theme2dng.php) | Navigation Bar, red | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2dng.php?u=500" target="_blank">Preview</a> |
+| [theme2sec](theme2sec.php) | Navigation Bar, gray | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2sec.php?u=500" target="_blank">Preview</a> |
+| [theme2drk](theme2drk.php) | Navigation Bar, dark | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2drk.php?u=500" target="_blank">Preview</a> |
+| [theme2lit](theme2lit.php) | Navigation Bar, light | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2lit.php?u=500" target="_blank">Preview</a> |
+| [theme2fprm](theme2fprm.php) | Navigation Bar, fixed-top, blue | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2fprm.php?u=500" target="_blank">Preview</a> |
+| [theme2fsuc](theme2fsuc.php) | Navigation Bar, fixed-top, green | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2fsuc.php?u=500" target="_blank">Preview</a> |
+| [theme2finf](theme2finf.php) | Navigation Bar, fixed-top, cyan | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2finf.php?u=500" target="_blank">Preview</a> |
+| [theme2fwrn](theme2fwrn.php) | Navigation Bar, fixed-top, yellow | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2fwrn.php?u=500" target="_blank">Preview</a> |
+| [theme2fdng](theme2fdng.php) | Navigation Bar, fixed-top, red | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2fdng.php?u=500" target="_blank">Preview</a> |
+| [theme2fsec](theme2fsec.php) | Navigation Bar, fixed-top, gray | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2fsec.php?u=500" target="_blank">Preview</a> |
+| [theme2fdrk](theme2fdrk.php) | Navigation Bar, fixed-top, dark | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2fdrk.php?u=500" target="_blank">Preview</a> |
+| [theme2flit](theme2flit.php) | Navigation Bar, fixed-top, light | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2flit.php?u=500" target="_blank">Preview</a> |
 | [theme3](theme3.php) | Scrollspy | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme3.php?u=501" target="_blank">Preview</a> |
 | [theme3a](theme3a.php) | Scrollspy & Affix | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme3a.php?u=501" target="_blank">Preview</a> |
 | [theme4](theme4.php) | Scrollspy Vertical Menu | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme4.php?u=501" target="_blank">Preview</a> |
