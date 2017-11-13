@@ -33,30 +33,30 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [theme4a](theme4a.php) | Scrollspy Vertical Menu 2 | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme4a.php?u=501" target="_blank">Preview</a> |
 | [theme4b](theme4b.php) | Scrollspy Vertical Menu 3 | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme4b.php?u=501" target="_blank">Preview</a> |
 | [theme5](theme5.php) | Horizontal Menu | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme5.php?u=500" target="_blank">Preview</a> |
-| [themew1](themew1.php) | Sidebar | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1.php?u=501) |
-| [themew1rd](themew1rd.php) | Sidebar, red | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1rd.php?u=501) |
-| [themew1pk](themew1pk.php) | Sidebar, pink | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1pk.php?u=501) |
-| [themew1pu](themew1pu.php) | Sidebar, purple | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1pu.php?u=501) |
-| [themew1dp](themew1dp.php) | Sidebar, deep purple | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1dp.php?u=501) |
-| [themew1in](themew1in.php) | Sidebar, indigo | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1in.php?u=501) |
-| [themew1blu](themew1blu.php) | Sidebar, blue | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1blu.php?u=501) |
-| [themew1lb](themew1lb.php) | Sidebar, light blue | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1lb.php?u=501) |
-| [themew1cy](themew1cy.php) | Sidebar, cyan | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1cy.php?u=501) |
-| [themew1te](themew1te.php) | Sidebar, teal | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1te.php?u=501) |
-| [themew1grn](themew1grn.php) | Sidebar, green | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1grn.php?u=501) |
-| [themew1lg](themew1lg.php) | Sidebar, light green | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1lg.php?u=501) |
-| [themew1li](themew1li.php) | Sidebar, lime | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1li.php?u=501) |
-| [themew1kh](themew1kh.php) | Sidebar, khaki | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1kh.php?u=501) |
-| [themew1ye](themew1ye.php) | Sidebar, yellow | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1ye.php?u=501) |
-| [themew1am](themew1am.php) | Sidebar, amber | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1am.php?u=501) |
-| [themew1or](themew1or.php) | Sidebar, orange | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1or.php?u=501) |
-| [themew1do](themew1do.php) | Sidebar, deep orange | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1do.php?u=501) |
-| [themew1bg](themew1bg.php) | Sidebar, blue grey | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1bg.php?u=501) |
-| [themew1br](themew1br.php) | Sidebar, brown | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1br.php?u=501) |
-| [themew1gr](themew1gr.php) | Sidebar, grey | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1gr.php?u=501) |
-| [themew1dg](themew1dg.php) | Sidebar, dark grey | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1dg.php?u=501) |
-| [themew1bl](themew1bl.php) | Sidebar, black | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1bl.php?u=501) |
-| [themew1w3](themew1w3.php) | Sidebar, w3schools | W3.CSS | [Preview](https://www.gem-editor.com/gwc/themew1w3.php?u=501) |
+| [themew1](themew1.php) | Sidebar | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1.php?u=501" target="_blank">Preview</a> |
+| [themew1rd](themew1rd.php) | Sidebar, red | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1rd.php?u=501" target="_blank">Preview</a> |
+| [themew1pk](themew1pk.php) | Sidebar, pink | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1pk.php?u=501" target="_blank">Preview</a> |
+| [themew1pu](themew1pu.php) | Sidebar, purple | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1pu.php?u=501" target="_blank">Preview</a> |
+| [themew1dp](themew1dp.php) | Sidebar, deep purple | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1dp.php?u=501" target="_blank">Preview</a> |
+| [themew1in](themew1in.php) | Sidebar, indigo | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1in.php?u=501" target="_blank">Preview</a> |
+| [themew1blu](themew1blu.php) | Sidebar, blue | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1blu.php?u=501" target="_blank">Preview</a> |
+| [themew1lb](themew1lb.php) | Sidebar, light blue | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1lb.php?u=501" target="_blank">Preview</a> |
+| [themew1cy](themew1cy.php) | Sidebar, cyan | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1cy.php?u=501" target="_blank">Preview</a> |
+| [themew1te](themew1te.php) | Sidebar, teal | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1te.php?u=501" target="_blank">Preview</a> |
+| [themew1grn](themew1grn.php) | Sidebar, green | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1grn.php?u=501" target="_blank">Preview</a> |
+| [themew1lg](themew1lg.php) | Sidebar, light green | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1lg.php?u=501" target="_blank">Preview</a> |
+| [themew1li](themew1li.php) | Sidebar, lime | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1li.php?u=501" target="_blank">Preview</a> |
+| [themew1kh](themew1kh.php) | Sidebar, khaki | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1kh.php?u=501" target="_blank">Preview</a> |
+| [themew1ye](themew1ye.php) | Sidebar, yellow | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1ye.php?u=501" target="_blank">Preview</a> |
+| [themew1am](themew1am.php) | Sidebar, amber | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1am.php?u=501" target="_blank">Preview</a> |
+| [themew1or](themew1or.php) | Sidebar, orange | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1or.php?u=501" target="_blank">Preview</a> |
+| [themew1do](themew1do.php) | Sidebar, deep orange | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1do.php?u=501" target="_blank">Preview</a> |
+| [themew1bg](themew1bg.php) | Sidebar, blue grey | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1bg.php?u=501" target="_blank">Preview</a> |
+| [themew1br](themew1br.php) | Sidebar, brown | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1br.php?u=501" target="_blank">Preview</a> |
+| [themew1gr](themew1gr.php) | Sidebar, grey | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1gr.php?u=501" target="_blank">Preview</a> |
+| [themew1dg](themew1dg.php) | Sidebar, dark grey | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1dg.php?u=501" target="_blank">Preview</a> |
+| [themew1bl](themew1bl.php) | Sidebar, black | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1bl.php?u=501" target="_blank">Preview</a> |
+| [themew1w3](themew1w3.php) | Sidebar, w3schools | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1w3.php?u=501" target="_blank">Preview</a> |
 | [themew6](themew6.php) | Architect | W3.CSS |
 | [themew5](themew5.php) | Dark Portfolio | W3.CSS |
 | [themew2](themew2.php) | Interior Designer | W3.CSS |
