@@ -30,6 +30,7 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [theme2fcd](theme2fcd.php) | Navigation Bar, fixed-top, card style | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme2fcd.php?u=501" target="_blank">:mag:</a> |
 | [theme3](theme3.php) | Scrollspy | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme3.php?u=501" target="_blank">:mag:</a> |
 | [theme3a](theme3a.php) | Scrollspy & Affix | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme3a.php?u=501" target="_blank">:mag:</a> |
+| [theme3b4](theme3b4.php) | Scrollspy | Bootstrap 4 beta | <a href="https://www.gem-editor.com/gwc/theme3b4.php?u=501" target="_blank">:mag:</a> |
 | [theme4](theme4.php) | Scrollspy Vertical Menu | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme4.php?u=501" target="_blank">:mag:</a> |
 | [theme4a](theme4a.php) | Scrollspy Vertical Menu 2 | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme4a.php?u=501" target="_blank">:mag:</a> |
 | [theme4b](theme4b.php) | Scrollspy Vertical Menu 3 | Bootstrap 3 | <a href="https://www.gem-editor.com/gwc/theme4b.php?u=501" target="_blank">:mag:</a> |
