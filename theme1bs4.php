@@ -23,6 +23,7 @@
 
    if(isset($_GET['w'])) $w = $_GET['w'];
       else $w="1";
+   if ($w=="2") echo '<meta name="robots" content="noindex">';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
    $xml2=simplexml_load_file("data/website2.xml") or die("Error: Cannot create object");
