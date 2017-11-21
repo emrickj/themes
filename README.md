@@ -60,7 +60,7 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [themew1dg](themew1dg.php) | Sidebar, dark grey | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1dg.php?u=501" target="_blank"><img class="emoji" title="Preview" alt="Preview" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" height="20" width="20"></a> |
 | [themew1bl](themew1bl.php) | Sidebar, black | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1bl.php?u=501" target="_blank"><img class="emoji" title="Preview" alt="Preview" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" height="20" width="20"></a> |
 | [themew1w3](themew1w3.php) | Sidebar, w3schools | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew1w3.php?u=501" target="_blank"><img class="emoji" title="Preview" alt="Preview" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" height="20" width="20"></a> |
-| [themew6](themew6.php) | Architect | W3.CSS |
+| [themew6](themew6.php) | Architect | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew6.php?u=502" target="_blank"><img title="Preview" alt="Preview" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" height="20" width="20"></a> |
 | [themew5](themew5.php) | Dark Portfolio | W3.CSS |
 | [themew2](themew2.php) | Interior Designer | W3.CSS |
 | [themew3](themew3.php) | Marketing | W3.CSS |
