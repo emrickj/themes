@@ -64,5 +64,5 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 | [themew5](themew5.php) | Dark Portfolio | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew5.php?u=503" target="_blank"><img title="Preview" alt="Preview" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" height="20" width="20"></a> |
 | [themew2](themew2.php) | Interior Designer | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew2.php?u=504" target="_blank"><img title="Preview" alt="Preview" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" height="20" width="20"></a> |
 | [themew3](themew3.php) | Marketing | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew3.php?u=505" target="_blank"><img title="Preview" alt="Preview" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" height="20" width="20"></a> |
-| [themew7](themew7.php) | Parallax | W3.CSS |
-| [themew4](themew4.php) | Startup | W3.CSS |
+| [themew7](themew7.php) | Parallax | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew7.php?u=506" target="_blank"><img title="Preview" alt="Preview" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" height="20" width="20"></a> |
+| [themew4](themew4.php) | Startup | W3.CSS | <a href="https://www.gem-editor.com/gwc/themew4.php?u=507" target="_blank"><img title="Preview" alt="Preview" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" height="20" width="20"></a> |
