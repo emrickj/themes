@@ -74,4 +74,16 @@ function displayMenu_a() {
    }   
 }
 
+// function below is used for Bootstrap 4.0 Navigation
+
+function displayMenu_na() {
+   $x = $GLOBALS['xml'];
+   for($i=1;$i<=6;$i++) {
+      if(strlen($x->page[$i-1]->name)>2) {
+         echo "<li class='nav-item'><a class='nav-link' href='#p".$i."'>" . str_replace('"fa','"fa fa-fw',ic_html($x->page[$i-1]->name))
+               . "</a></li>\n";
+      }
+   }   
+}
+
 ?>
