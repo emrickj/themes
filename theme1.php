@@ -63,10 +63,10 @@ t1 { white-space: pre-wrap;}
    <div class="container">
       <div class="row">
          <div class="hidden-sm hidden-md hidden-lg" style="padding-top: 50px;"></div>
-         <div class="col-sm-2" style="padding: 20px">
+         <div class="col-sm-3" style="padding: 20px">
          <b><h2><?php echo $xml->title ?></h2></b>
          </div>
-         <div class="col-sm-10">
+         <div class="col-sm-9">
             <?php
             if ($w=="1")
                if(strlen($xml->page[$p-1]->image)>4)
@@ -79,7 +79,7 @@ t1 { white-space: pre-wrap;}
          </div>
       </div>
       <div class="row">
-         <div class="col-sm-2 hidden-xs">
+         <div class="col-sm-3 hidden-xs">
                   <br>
                   <div class="btn-group-vertical btn-group-lg">
                      <?php
@@ -99,7 +99,7 @@ t1 { white-space: pre-wrap;}
                   <br>
                   <br>
          </div>
-         <div class="col-sm-10">
+         <div class="col-sm-9">
            <div class="panel panel-primary">
                <div class="panel-body">
                      <?php
