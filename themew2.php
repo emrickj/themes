@@ -10,8 +10,8 @@
    $email = $_POST['email'];
    $message = $_POST['message'];
    
-   //ini_set('display_errors', 'On');
-   //error_reporting(E_ALL);
+   ini_set('display_errors', 'On');
+   error_reporting(E_ALL);
 
    if(($_GET['u'] ?? '')!="") $b = "_".$_GET['u'];
       else $b="";

@@ -11,8 +11,8 @@
    $subject = $_POST['subject'];
    $message = $_POST['message'];
    
-   ini_set('display_errors', 'On');
-   error_reporting(E_ALL);
+   //ini_set('display_errors', 'On');
+   //error_reporting(E_ALL);
 
    if ($name!="") {
       // echo $subject." ".$message." ".$name." ".$email;
@@ -25,13 +25,13 @@
    if(isset($_GET['p'])) $p = $_GET['p'];
       else $p="1";
    
-   $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   $xml2=simplexml_load_file("data/website2.xml") or die("Error: Cannot create object");
+   $xml=simplexml_load_file("data/website".$b.".xml") or die("<br><br>Error: Cannot create object, please make sure that 'website".$b.".xml' is in the 'data' directory.");
+   $xml2=simplexml_load_file("data/website2.xml");
    //print_r($xml);
    //echo $xml->image[1];
 
-   require 'dspmenu.php';
-   require 'dspcnt.php';
+   $si=(include 'dspmenu.php') or die("<br><br>Error: Unable to access 'dspmenu.php'.  Make sure this file is in the directory where the theme file is.");
+   $si=(include 'dspcnt.php') or die("<br><br>Error: Unable to access 'dspcnt.php'.  Make sure this file is in the directory where the theme file is.");
 ?>
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>
