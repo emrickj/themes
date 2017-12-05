@@ -34,7 +34,8 @@
    
    require 'dspmenu.php';
    require 'dspcnt.php';
-      
+   
+   error_reporting(0);
    if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
    $mainpage = $mps.$_SERVER['HTTP_HOST'].str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
       if ($p=="2") echo "<link rel='prev' href='".$mainpage."'>"; else
