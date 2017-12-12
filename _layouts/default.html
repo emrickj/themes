@@ -25,6 +25,30 @@
 
     <section class="main-content">
       {{ content }}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>CSS Framework</th>
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+      {% for item in site.website_theme %}
+          <tr>
+            <td> <a href="{{ item.name | prepend: "theme" }}.php">{{ item.name | prepend: "theme" }}</a> </td>
+            <td> {{ item.desc }} </td>
+            <td> {{ item.cssf }} </td>
+            <td>
+        {% if item.pwfn != nil %} 
+        <a title="Preview" href="{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}" target="_blank">&#x1f50d;</a> 
+        {% endif %} 
+            </td>
+          </tr>
+      {% endfor %}
+        </tbody>
+      </table>
 
       <footer class="site-footer">
         {% if site.github.is_project_page %}
