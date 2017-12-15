@@ -21,6 +21,7 @@
         margin: 2px;
         cursor: pointer;
     }
+    .blue {background-color: #008CBA; color: white;} /* Blue */
     td:last-child {
         white-space: nowrap;
     }
@@ -60,7 +61,7 @@
             <td>
               <a class="icon_btn" title="Download" href="{{ item.name | prepend: "theme" }}.php"><i class="fa fa-download fa-fw"></i></a>
               {% if item.pwfn != nil %} 
-              <a class="icon_btn" title="Preview" href="{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}" target="_blank"><i class="fa fa-search fa-fw"></i></a>
+              <a class="icon_btn blue" title="Preview" href="{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}" target="_blank"><i class="fa fa-search fa-fw"></i></a>
               {% endif %} 
             </td>
           </tr>
