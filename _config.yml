@@ -119,6 +119,10 @@ website_theme:
     desc: Navigation Bar, card style 2
     cssf: Bootstrap 4
     pwfn: 500
+  - name: 2cdb
+    desc: Navigation Bar, card style 3
+    cssf: Bootstrap 4
+    pwfn: 508
   - name: 2cdsu
     desc: Navigation Bar, slide up
     cssf: Bootstrap 4
