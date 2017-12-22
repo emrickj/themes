@@ -56,9 +56,11 @@
             <td> {{ item.desc }} </td>
             <td> {{ item.cssf }} </td>
             <td>
-              <a class="icon_btn" title="Download" href="{{ item.name | prepend: "theme" }}.php">&#x1f4e5;</a>
+              <a title="Download" href="{{ item.name | prepend: "theme" }}.php">&#x1f4e5;</a>
               {% if item.pwfn != nil %} 
-              <a class="icon_btn blue" title="Preview" href="{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}" target="_blank">&#x1f50d;</a>
+              <a title="Preview" href="{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}" target="_blank">&#x1f50d;</a>
+              <a title="Preview Mobile" href="{{ site.mobile_emulator_path }}{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}"
+                 target="_blank">&#x1f4f1;</a>
               {% endif %} 
             </td>
           </tr>
