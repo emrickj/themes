@@ -44,6 +44,10 @@ website_theme:
     desc: Navigation Bar, fixed top
     cssf: Bootstrap 3
     pwfn: 501
+  - name: 2cs
+    desc: Navigation Bar, fixed top, card style
+    cssf: Bootstrap 3
+    pwfn: 501
   - name: 2in
     desc: Navigation Bar, inverted
     cssf: Bootstrap 3
