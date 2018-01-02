@@ -50,7 +50,7 @@
 <?php echo $xml->style ?>
 </style>
 </head>
-<body id="demo">
+<body id="demo" onload="setHeight();" onresize="setHeight();">
 <div class="d-block d-md-none">
 <nav class="navbar bg-dark navbar-dark fixed-top">
   <a class="navbar-brand" href="<?php echo $mainpage ?>"><?php echo $xml->title ?></a>
@@ -166,8 +166,10 @@
 </body>
 <script>
 
-if ($(".container").height() < window.outerHeight)
-   $(".container").height(window.outerHeight);
-
+function setHeight() {
+$(".container").css("height","initial");
+if ($(".container").height() < window.innerHeight)
+   $(".container").height(window.innerHeight);
+}
 </script>
 </html>
