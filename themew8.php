@@ -10,8 +10,8 @@
    $email = $_POST['email'];
    $message = $_POST['message'];
    
-   ini_set('display_errors', 'On');
-   error_reporting(E_ALL);
+   //ini_set('display_errors', 'On');
+   //error_reporting(E_ALL);
 
    if(($_GET['u'] ?? '')!="") $b = "_".$_GET['u'];
       else $b="";
@@ -21,8 +21,8 @@
    $w = $_GET['w'] ?? '1';
    if ($w=="2") echo '<meta name="robots" content="noindex">';
 
-   $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   $xml2=simplexml_load_file("data/website2.xml") or die("Error: Cannot create object");
+   $xml=simplexml_load_file("data/website".$b.".xml") or die("<br><br>Error: Cannot create object, please make sure that 'website".$b.".xml' is in the 'data' directory.");
+   $xml2=simplexml_load_file("data/website2.xml");
    //print_r($xml);
    //echo $xml->image[1];
    
@@ -32,7 +32,7 @@
       return $rt;
    }
 
-   require 'dspcnt.php';
+   $si=(include 'dspcnt.php') or die("<br><br>Error: Unable to access 'dspcnt.php'.  Make sure this file is in the directory where the theme file is.");
    //if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
    $mps="http://";
    $mainpage = $mps.$_SERVER['HTTP_HOST'].str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
@@ -42,47 +42,44 @@
 ?>
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>
-t1 { white-space: pre-wrap;}
+@media (min-width: 601px) {
+	.label {text-align: right; padding-top: 8px; padding-right: 10px;}
+}
 <?php echo $xml->style ?>
 </style>
 </head>
 <body>
 
-<!-- Sidebar -->
-<div class="w3-sidebar w3-light-grey w3-bar-block w3-large w3-collapse w3-card-2 w3-animate-left"
- style="width:200px;" id="mySidebar">
-<button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+<div class="w3-container w3-blue w3-center">
+  <h1 style="text-shadow:1px 1px 0 #444"><?php echo $xml->title ?></h1>
+</div>
+
+<!-- Navigation bar -->
+<div class="w3-bar w3-black">
   <?php
   for($i=1;$i<=6;$i++) {
-    if($i==$p && $w=="1" && $name=="") $bs=" w3-gray"; else $bs="";
-    if(strlen($xml->page[$i-1]->name)>2) 
-      echo "<a href='?u=".ltrim($b,"_")."&p=".$i."' class='w3-bar-item w3-button".$bs."'>"
-        .ic_html($xml->page[$i-1]->name)."</a>";
+	if($i==$p && $w=="1" && $name=="") $bs=" w3-gray"; else $bs="";
+	if(strlen($xml->page[$i-1]->name)>2) 
+	  echo "<a href='?u=".ltrim($b,"_")."&p=".$i."' class='w3-bar-item w3-button w3-hide-small".$bs."'>"
+		.ic_html($xml->page[$i-1]->name)."</a>";
   }
   ?>
-  <div class="w3-dropdown-hover">
-    <button class="w3-button w3-cyan"><?php echo strip_tags($xml2->title) ?> <i class="fa fa-caret-down"></i></button>
-    <div class="w3-dropdown-content w3-bar-block">
-      <?php
-      for($i=1;$i<=6;$i++) {
-         if($i==$p && $w=="2" && $name=="") $bs=" w3-gray"; else $bs="";
-         if(strlen($xml2->page[$i-1]->name)>2)
-            echo "<a href='?u=".ltrim($b,"_")."&w=2&p=".$i."' class='w3-bar-item w3-button w3-cyan".$bs."'>"
-            . str_replace('"fa','"fa fa-fw',ic_html($xml2->page[$i-1]->name)) . "</a>\n";
-      }
-      ?>
-    </div>
-  </div>  
+	<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="myFunction()">&#9776;</a>
+</div>
+<div id="demo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium">
+  <?php
+  for($i=1;$i<=6;$i++) {
+	if($i==$p && $w=="1" && $name=="") $bs=" w3-gray"; else $bs="";
+	if(strlen($xml->page[$i-1]->name)>2) 
+	  echo "<a href='?u=".ltrim($b,"_")."&p=".$i."' class='w3-bar-item w3-button".$bs."'>"
+		.ic_html($xml->page[$i-1]->name)."</a>";
+  }
+  ?>
 </div>
 
 <!-- Page Content -->
-<div class="w3-main" style="margin-left:200px">
-<div class="w3-black">
-  <button class="w3-button w3-black w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
-</div>
-<div class="w3-container">
-  <h1><?php echo $xml->title ?></h1>
-</div>
+<div class="w3-main">
+
 <?php
 if ($w=="1")
    if(strlen($xml->page[$p-1]->image)>4)
@@ -105,28 +102,48 @@ if ($w=="2")
      ($xml2->page[$p-1]['type']=="form" && $w=="2")) && $name=="") {
 ?>
      <form class="w3-container" role="form" method="post">
-     <div class="w3-row">
-       <div class="w3-col m6 l5">
-       <p>
-          <label for="name">Name:</label>
-          <input type="text" class="w3-input w3-border" name="name">
-       </p>
-       <p>
-          <label for="phone">Contact Phone #:</label>
-          <input type="text" class="w3-input w3-border" name="phone">
-       </p>
-       <p>
-          <label for="email">Email Address:</label>
-          <input type="email" class="w3-input w3-border" name="email">
-       </p>
-       <p>
-          <label for="message">Message:</label>
-          <textarea class="w3-input w3-border" rows="5" name="message"></textarea>
-       </p>
-       <input type="submit" class="w3-button w3-black w3-margin-bottom" value="Submit">
-       </div>
-     </div>  
-     </form><?php
+		 <div class="w3-row">
+		   <div class="w3-third">
+			  <div class="label">Name:</div>
+		   </div>
+		   <div class="w3-third">
+			  <input type="text" class="w3-input w3-border" name="name">
+		   </div>
+		 </div>
+		 <div class="w3-row w3-margin-top">
+		   <div class="w3-third">
+			  <div class="label">Contact Phone #:</div>
+		   </div>
+		   <div class="w3-third">
+			  <input type="text" class="w3-input w3-border" name="phone">
+		   </div>
+		 </div>
+		 <div class="w3-row w3-margin-top">
+		   <div class="w3-third">
+			  <div class="label">Email Address:</div>
+		   </div>
+		   <div class="w3-third">
+			  <input type="email" class="w3-input w3-border" name="email">
+		   </div>
+		 </div>
+		 <div class="w3-row w3-margin-top">
+		   <div class="w3-third">
+			  <div class="label">Message:</div>
+		   </div>
+		   <div class="w3-third">
+			  <textarea class="w3-input w3-border" rows="5" name="message"></textarea>
+		   </div>
+		 </div>
+		 <div class="w3-row w3-margin-top">
+		   <div class="w3-third">
+		      &nbsp;
+		   </div>
+		   <div class="w3-third">
+			  <input type="submit" class="w3-button w3-black w3-round-large w3-margin-bottom" value="Submit">
+		   </div>
+		 </div>
+     </form>
+<?php
   }
   if($xml->page[$p-1]['type']=="comments" && $w=="1" && $name=="") {
 ?>
@@ -137,14 +154,20 @@ if ($w=="2")
      <!-- end htmlcommentbox.com --><?php
   }
 ?>
+<div class="w3-container w3-light-grey w3-center">
+	<h6>This website was created using <a href="https://www.gem-editor.com">GEM</a>.</h6>
+</div>
 </div>
 
 <script>
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-}
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
+
+function myFunction() {
+    var x = document.getElementById("demo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
 }
 </script>
 
