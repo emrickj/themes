@@ -56,10 +56,10 @@
             <td> {{ item.desc }} </td>
             <td> {{ item.cssf }} </td>
             <td>
-              <a title="Download" href="{{ item.name | prepend: "theme" }}.php"><span class="download"></span></a>
+              <a class="action" title="Download" href="{{ item.name | prepend: "theme" }}.php"><span class="download"></span></a>
               {% if item.pwfn != nil %} 
-              <a title="Preview" href="{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}" target="_blank"><span class="preview"></span></a>
-              <a title="Preview Mobile" href="{{ site.mobile_emulator_path }}{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}"
+              <a class="action" title="Preview" href="{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}" target="_blank"><span class="preview"></span></a>
+              <a class="action" title="Preview Mobile" href="{{ site.mobile_emulator_path }}{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}"
                  target="_blank"><span class="phone"></span></a>
               {% endif %} 
             </td>
