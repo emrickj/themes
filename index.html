@@ -1,4 +1,8 @@
 ---
+message: >
+   A collection of responsive stand-alone website themes using current CSS Frameworks.  Some
+   require PHP 7 to run.  Please see the <a href="https://github.com/emrickj/vertical-button-theme">vertical-button-theme</a>
+   repository to get sample website file(s).
 ---
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
@@ -41,7 +45,8 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        {{ content }}
+        {{ site.title | default: site.github.repository_name }}
+        {{ page.message }}
       <table>
         <thead>
           <tr>
