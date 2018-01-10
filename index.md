@@ -12,3 +12,4 @@ A collection of responsive stand-alone website themes using current CSS Framewor
 <a class="action" title="Preview Mobile" href="{{ site.mobile_emulator_path }}{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}"
    target="_blank"><span class="phone"></span></a>
 {% endif %} 
+{% endfor %}
