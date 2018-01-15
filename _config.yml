@@ -1,5 +1,6 @@
 theme: jekyll-theme-slate
 show_downloads: true
+google_analytics: UA-112473078-1
 title: Website Theme Collection
 preview_path: https://www.gem-editor.com/gwc/theme
 mobile_emulator_path: http://mobiletest.me/iphone_5_emulator/?u=
