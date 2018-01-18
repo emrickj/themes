@@ -1,0 +1,27 @@
+<table>
+ <thead>
+   <tr>
+     <th>Filename</th>
+     <th>Description</th>
+     <th>CSS Framework</th>
+     <th>Actions</th>
+   </tr>
+ </thead>
+ <tbody>
+{% for item in page.website_theme %}
+   <tr>
+     <td> {{ item.name | prepend: "theme" }}.php </td>
+     <td> {{ item.desc }} </td>
+     <td> {{ item.cssf }} </td>
+     <td>
+       <a class="action" title="Download" href="{{ item.name | prepend: "theme" }}.php"><span class="download"></span></a>
+       {% if item.pwfn != nil %} 
+       <a class="action" title="Preview" href="{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}" target="_blank"><span class="preview"></span></a>
+       <a class="action" title="Preview Mobile" href="{{ site.mobile_emulator_path }}{{ site.preview_path | append: item.name }}.php?u={{ item.pwfn }}"
+          target="_blank"><span class="phone"></span></a>
+       {% endif %} 
+     </td>
+   </tr>
+{% endfor %}
+ </tbody>
+</table>
