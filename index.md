@@ -1,4 +1,17 @@
 ---
+website_theme:
+  - name: 1
+    desc: Vertical Button
+    cssf: Bootstrap 3
+    pwfn:
+  - name: 1af
+    desc: Vertical Button, fixed
+    cssf: Bootstrap 3
+    pwfn:
+  - name: 1at
+    desc: Vertical Button, affix
+    cssf: Bootstrap 3
+    pwfn: 501
 ---
 # Website Theme Collection
 A collection of responsive stand-alone website themes using current CSS Frameworks.  Some require PHP 7 to run.  Please see the [vertical-button-theme](https://github.com/emrickj/vertical-button-theme) repository to get sample website file(s).
