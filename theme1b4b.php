@@ -6,17 +6,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
-   $name = $_POST['name'];
-   $phone = $_POST['phone'];
-   $email = $_POST['email'];
-   $message = $_POST['message'];
-   
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
-
-   if(isset($_GET['u']) && $_GET['u']!="") $b = "_".$_GET['u'];
-      else $b="";
-   // echo "--".$b."--";
 
    if(isset($_GET['p'])) $p = $_GET['p'];
       else $p="1";
@@ -24,6 +15,9 @@
    if(isset($_GET['w'])) $w = $_GET['w'];
       else $w="1";
    if ($w=="2") echo '<meta name="robots" content="noindex">';
+   
+   require 'dspmenu.php';
+   require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
    $xml2=simplexml_load_file("data/website2.xml") or die("Error: Cannot create object");
@@ -32,9 +26,6 @@
    //echo $_SERVER['HTTP_HOST']."\n";
    //echo $_SERVER['SCRIPT_NAME'];
    
-   require 'dspmenu.php';
-   require 'dspcnt.php';
-      
    error_reporting(0);
    if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
    $mainpage = $mps.$_SERVER['HTTP_HOST'].str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);

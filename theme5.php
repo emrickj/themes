@@ -6,17 +6,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
-   $name = $_POST['name'];
-   $phone = $_POST['phone'];
-   $email = $_POST['email'];
-   $message = $_POST['message'];
-   
    //ini_set('display_errors', 'On');
    //error_reporting(E_ALL);
-
-   if(isset($_GET['u']) && $_GET['u']!="") $b = "_".$_GET['u'];
-      else $b="";
-   // echo "--".$b."--";
 
    if(isset($_GET['p'])) $p = $_GET['p'];
       else $p="1";
@@ -24,13 +15,13 @@
    if(isset($_GET['w'])) $w = $_GET['w'];
       else $w="1";
 
+   $si=(include 'dspmenu.php') or die("<br><br>Error: Unable to access 'dspmenu.php'.  Make sure this file is in the directory where the theme file is.");
+   $si=(include 'dspcnt.php') or die("<br><br>Error: Unable to access 'dspcnt.php'.  Make sure this file is in the directory where the theme file is.");
+
    $xml=simplexml_load_file("data/website".$b.".xml") or die("<br><br>Error: Cannot create object, please make sure that 'website".$b.".xml' is in the 'data' directory.");
    $xml2=simplexml_load_file("data/website2.xml");
    //print_r($xml);
    //echo $xml->image[1];
-
-   $si=(include 'dspmenu.php') or die("<br><br>Error: Unable to access 'dspmenu.php'.  Make sure this file is in the directory where the theme file is.");
-   $si=(include 'dspcnt.php') or die("<br><br>Error: Unable to access 'dspcnt.php'.  Make sure this file is in the directory where the theme file is.");
 ?>
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>

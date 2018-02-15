@@ -6,29 +6,20 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
-   $name = $_POST['name'];
-   $phone = $_POST['phone'];
-   $email = $_POST['email'];
-   $message = $_POST['message'];
-   
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
-
-   if(($_GET['u'] ?? '')!="") $b = "_".$_GET['u'];
-      else $b="";
-   // echo "--".$b."--";
 
    $p = $_GET['p'] ?? '1';
    $w = $_GET['w'] ?? '1';
    if ($w=="2") echo '<meta name="robots" content="noindex">';
 
+   require 'dspmenu.php';
+   require 'dspcnt.php';
+
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
    $xml2=simplexml_load_file("data/website2.xml") or die("Error: Cannot create object");
    //print_r($xml);
    //echo $xml->image[1];
-   
-   require 'dspmenu.php';
-   require 'dspcnt.php';
 ?>
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>

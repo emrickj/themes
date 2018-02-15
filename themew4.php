@@ -7,20 +7,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
-   $name = $_POST['name'];
-   $phone = $_POST['phone'];
-   $email = $_POST['email'];
-   $message = $_POST['message'];
-   
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
 
-   if(($_GET['u'] ?? '')!="") $b = "_".$_GET['u'];
-      else $b="";
-   // echo "--".$b."--";
-
    $p = $_GET['p'] ?? '1';
    $w = $_GET['w'] ?? '1';
+
+   require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
    //print_r($xml);
@@ -38,7 +31,6 @@
       return $rt;
    }
 
-   require 'dspcnt.php';
    //if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
 ?>
 	<title><?php echo strip_tags($xml->title) ?></title>
