@@ -33,13 +33,12 @@ function sendDb($n,$ph,$e,$m) {
     if ($n=="" || ($ph=="" && $e=="")) {
        return false;
     } else {
-       mysql_connect("sql209.byethost4.com",$username,$password);
-       @mysql_select_db($database) or die( "Unable to select database");
+       $link = mysqli_connect("sql209.byethost4.com",$username,$password, $database);
 
        $query = "INSERT INTO idscts (name,phone,email,message) VALUES ('$n','$ph','$e','$m')";
-       mysql_query($query);
+       mysqli_query($link,$query);
 
-       mysql_close();
+       mysqli_close($link);
 
        return true;
     }
