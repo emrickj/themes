@@ -2,8 +2,9 @@
    error_reporting(0);
 
    $name = $_POST['name'];
-   $phone = $_POST['phone'];
+   $phone = $_POST['phone']; // Used when submitting to database
    $email = $_POST['email'];
+   $subject = $_POST['subject']; // Used when sending email
    $message = $_POST['message'];
    
    error_reporting(E_ALL);
