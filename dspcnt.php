@@ -12,6 +12,14 @@
    if(isset($_GET['u']) && $_GET['u']!="") $b = "_".$_GET['u'];
       else $b="";
    // echo "--".$b."--";
+   
+// Use the following optional function to help index content of website on search engines.  Place this function in the head section of document.
+   
+function paginatePage($pn) {
+   $x = $GLOBALS['xml'];
+   if ($pn > "1") echo "<link rel='prev' href='?p=".($pn - 1)."'>\n";
+   if (($pn < "6") && strlen($x->page[intval($pn)]->name)>2) echo "<link rel='next' href='?p=".($pn + 1)."'>\n";
+}
 
 function dispContents($pn,$u="",$wn=1) {
    $x = $GLOBALS['xml'];
