@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
@@ -15,8 +8,7 @@
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   //print_r($xml);
-   //echo $xml->image[1];
+   $page = $xml->xpath('/website/page');
    
    function ic_html($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = '<i class="fa">'.substr($pname,0,3).'</i> '.substr($pname,4);
@@ -26,6 +18,13 @@
 
    //if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title><?php echo strip_tags($xml->title) ?></title>
   <style>
   body {
@@ -57,8 +56,8 @@
         <ul class="nav navbar-nav">
          <?php
          for($i=1;$i<=6;$i++) {
-           if(strlen($xml->page[$i-1]->name)>2) 
-              echo "<li><a href='#p".$i."'>" . ic_html($xml->page[$i-1]->name) . "</a></li>";
+           if(strlen($page[$i-1]->name)>2) 
+              echo "<li><a href='#p".$i."'>" . ic_html($page[$i-1]->name) . "</a></li>";
          }
          ?>  
         </ul>
@@ -69,12 +68,12 @@
 
 <?php
    for($i=1;$i<=6;$i++) {
-      if(strlen($xml->page[$i-1]->name)>2) {
+      if(strlen($page[$i-1]->name)>2) {
          echo "<div id='p".$i."' class='container-fluid'>";
-         if(strlen($xml->page[$i-1]->image)>4)
-            echo "<img class='img-responsive' style='display: block;margin: auto;' src='".$xml->page[$i-1]->image."'>\n";
-         echo trim($xml->page[$i-1]->contents);
-         if($xml->page[$i-1]['type']=="comments") {
+         if(strlen($page[$i-1]->image)>4)
+            echo "<img class='img-responsive' style='display: block;margin: auto;' src='".$page[$i-1]->image."'>\n";
+         echo trim($page[$i-1]->contents);
+         if($page[$i-1]['type']=="comments") {
 
          // begin htmlcommentbox.com -->
          echo "<div id='HCB_comment_box' style='color: inherit; background-color: inherit;'>";
@@ -83,7 +82,7 @@
          <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
          <!-- end htmlcommentbox.com --><?php
           }
-          if($xml->page[$i-1]['type']=="form") {
+          if($page[$i-1]['type']=="form") {
     ?>    <form class="form-horizontal" role="form" method="post">
             <div class="form-group">
                <label class="control-label col-sm-3" for="name">Name:</label>
