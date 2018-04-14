@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
@@ -15,8 +8,7 @@
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   //print_r($xml);
-   //echo $xml->image[1];
+   $page = $xml->xpath('/website/page');
    
    function icon($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = substr($pname,0,3);
@@ -32,6 +24,13 @@
 
    //if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
 ?>
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
@@ -48,16 +47,16 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
   <!-- Avatar image in top left corner -->
-  <img src="<?php echo $xml->page[0]->image ?>" style="width:100%">
+  <img src="<?php echo $page[0]->image ?>" style="width:100%">
   <a href="#p1" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa w3-xxlarge"><?php echo icon($xml->page[0]->name) ?></i>
-    <p><?php echo ic_strip($xml->page[0]->name) ?></p>
+    <i class="fa w3-xxlarge"><?php echo icon($page[0]->name) ?></i>
+    <p><?php echo ic_strip($page[0]->name) ?></p>
   </a>
    <?php
    for($i=2;$i<=4;$i++) {
-     if(strlen($xml->page[$i-1]->name)>2) {
+     if(strlen($page[$i-1]->name)>2) {
         echo "<a href='#p".$i."' class='w3-bar-item w3-button w3-padding-large w3-hover-black'><i class='fa w3-xxlarge'>"
-        . icon($xml->page[$i-1]->name) . "</i><p>" . ic_strip($xml->page[$i-1]->name) . "</p></a>";
+        . icon($page[$i-1]->name) . "</i><p>" . ic_strip($page[$i-1]->name) . "</p></a>";
      }
    }
    ?>  
@@ -68,9 +67,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
    <?php
    for($i=1;$i<=4;$i++) {
-     if(strlen($xml->page[$i-1]->name)>2) {
+     if(strlen($page[$i-1]->name)>2) {
         echo "<a href='#p".$i."' class='w3-bar-item w3-button' style='width:25% !important'>"
-        . ic_strip($xml->page[$i-1]->name) . "</a>";
+        . ic_strip($page[$i-1]->name) . "</a>";
      }
    }
    ?>  
@@ -82,20 +81,20 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="p1">
 <?php
-    echo trim($xml->page[0]->contents);
+    echo trim($page[0]->contents);
 ?>
-    <img src="<?php echo $xml->page[0]->image ?>" class="w3-image" width="992" height="1108">
+    <img src="<?php echo $page[0]->image ?>" class="w3-image" width="992" height="1108">
   </header>
 
 <?php
    for($i=2;$i<=4;$i++) {
-      if($xml->page[$i-1]['type']=="page")
-         if(strlen($xml->page[$i-1]->name)>2) {     
+      if($page[$i-1]['type']=="page")
+         if(strlen($page[$i-1]->name)>2) {     
             echo "<div class='w3-padding-64 w3-content' id='p".$i."'>";
-            echo trim($xml->page[$i-1]->contents);
+            echo trim($page[$i-1]->contents);
             echo "</div>";
          }
-      if($xml->page[$i-1]['type']=="comments") {
+      if($page[$i-1]['type']=="comments") {
 
      // begin htmlcommentbox.com -->
      echo "<div id='p".$i."'></div>";
@@ -105,10 +104,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
      <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
      <!-- end htmlcommentbox.com --><?php
       }
-      if($xml->page[$i-1]['type']=="form") {
+      if($page[$i-1]['type']=="form") {
 
      echo "<div class='w3-padding-64 w3-content' id='p".$i."'>";
-     echo trim($xml->page[$i-1]->contents);
+     echo trim($page[$i-1]->contents);
 ?>   <div class="w3-row-padding">
      <div class="w3-half">
        <form action="#alert" class="w3-container" role="form" method="post">

@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <?php
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
@@ -13,8 +8,7 @@
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   //print_r($xml);
-   //echo $xml->image[1];
+   $page = $xml->xpath('/website/page');
    
    function ic_html($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = '<i class="fa">'.substr($pname,0,3).'</i> '.substr($pname,4);
@@ -24,6 +18,11 @@
 
    //if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
 ?>
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>
 <?php echo $xml->style ?>
@@ -38,8 +37,8 @@
     <div class="w3-right w3-hide-small">
    <?php
    for($i=1;$i<=3;$i++) {
-     if(strlen($xml->page[$i-1]->name)>2) 
-        echo "<a href='#p".$i."' class='w3-bar-item w3-button'>" . ic_html($xml->page[$i-1]->name) . "</a>";
+     if(strlen($page[$i-1]->name)>2) 
+        echo "<a href='#p".$i."' class='w3-bar-item w3-button'>" . ic_html($page[$i-1]->name) . "</a>";
    }
    ?>  
     </div>
@@ -48,7 +47,7 @@
 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="<?php echo $xml->page[0]->image ?>" width="1500" height="800">
+  <img class="w3-image" src="<?php echo $page[0]->image ?>" width="1500" height="800">
   <div class="w3-display-middle w3-margin-top w3-center">
     <h1 class="w3-xxlarge w3-text-white"><?php echo $xml->title ?></h1>
   </div>
@@ -59,11 +58,11 @@
 
 <?php
    for($i=1;$i<=3;$i++) {
-      if(strlen($xml->page[$i-1]->name)>2) {
+      if(strlen($page[$i-1]->name)>2) {
          echo "<div class='w3-container w3-padding-32' id='p".$i."'>";
-         echo "<h3 class='w3-border-bottom w3-border-light-grey w3-padding-16'>".$xml->page[$i-1]->name."</h3>";
-         echo trim($xml->page[$i-1]->contents);
-         if($xml->page[$i-1]['type']=="comments") {
+         echo "<h3 class='w3-border-bottom w3-border-light-grey w3-padding-16'>".$page[$i-1]->name."</h3>";
+         echo trim($page[$i-1]->contents);
+         if($page[$i-1]['type']=="comments") {
 
          // begin htmlcommentbox.com -->
          echo "<div id='HCB_comment_box'>";
@@ -72,7 +71,7 @@
          <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
          <!-- end htmlcommentbox.com --><?php
           }
-          if($xml->page[$i-1]['type']=="form") {
+          if($page[$i-1]['type']=="form") {
     ?>    <form action="#alert" role="form" method="post">
               <input type="text" class="w3-input w3-section" placeholder="Name" name="name">
               <input type="text" class="w3-input w3-section" placeholder="Contact Phone #" name="phone">

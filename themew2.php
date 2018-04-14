@@ -1,9 +1,3 @@
-<html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
@@ -14,8 +8,7 @@
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   //print_r($xml);
-   //echo $xml->image[1];
+   $page = $xml->xpath('/website/page');
    
    function ic_html($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = '<i class="fa">'.substr($pname,0,3).'</i> '.substr($pname,4);
@@ -25,6 +18,12 @@
 
    //if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
 ?>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
@@ -43,8 +42,8 @@ body {font-size:16px;}
   <div class="w3-bar-block">
    <?php
    for($i=1;$i<=6;$i++) {
-     if(strlen($xml->page[$i-1]->name)>2) 
-        echo "<a href='#".$i."' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>" . ic_html($xml->page[$i-1]->name) . "</a>";
+     if(strlen($page[$i-1]->name)>2) 
+        echo "<a href='#".$i."' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>" . ic_html($page[$i-1]->name) . "</a>";
    }
    ?>  
 </nav>
@@ -66,16 +65,16 @@ body {font-size:16px;}
   </div>
 <?php
    for($i=1;$i<=6;$i++) {
-      if(strlen($xml->page[$i-1]->name)>2) {
+      if(strlen($page[$i-1]->name)>2) {
          echo "<div class='w3-container' style='margin-top:80px' id='".$i."'>";
-         echo "<h1 class='w3-xxxlarge w3-text-red'><b>".$xml->page[$i-1]->name.".</b></h1>";
+         echo "<h1 class='w3-xxxlarge w3-text-red'><b>".$page[$i-1]->name.".</b></h1>";
          echo "<hr style='width:50px;border:5px solid red' class='w3-round'>";
       }
-      if(strlen($xml->page[$i-1]->image)>4)
-         echo "<img class='w3-image' src='".$xml->page[$i-1]->image."' style='width:100%'>\n";
-      echo trim($xml->page[$i-1]->contents);
+      if(strlen($page[$i-1]->image)>4)
+         echo "<img class='w3-image' src='".$page[$i-1]->image."' style='width:100%'>\n";
+      echo trim($page[$i-1]->contents);
       echo "</div>";
-      if($xml->page[$i-1]['type']=="comments") {
+      if($page[$i-1]['type']=="comments") {
 ?>
      <!-- begin htmlcommentbox.com -->
      <div class="w3-container" id="HCB_comment_box"><a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
@@ -83,7 +82,7 @@ body {font-size:16px;}
      <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
      <!-- end htmlcommentbox.com --><?php
       }
-      if($xml->page[$i-1]['type']=="form") {
+      if($page[$i-1]['type']=="form") {
 ?>
      <form action="#alert" class="w3-container" role="form" method="post">
      <div class="w3-row">

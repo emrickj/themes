@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
@@ -15,8 +8,7 @@
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   //print_r($xml);
-   //echo $xml->image[1];
+   $page = $xml->xpath('/website/page');
    
    function ic_html($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = '<i class="fa">'.substr($pname,0,3).'</i> '.strtoupper(substr($pname,4));
@@ -32,6 +24,13 @@
 
    //if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
 ?>
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
@@ -51,37 +50,37 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url('<?php echo $xml->page[0]->image ?>');
+    background-image: url('<?php echo $page[0]->image ?>');
     min-height: 100%;
 }
 
 /* Second image */
 .bgimg-2 {
-    background-image: url("<?php echo $xml->page[1]->image ?>");
+    background-image: url("<?php echo $page[1]->image ?>");
     min-height: 400px;
 }
 
 /* Third image */
 .bgimg-3 {
-    background-image: url("<?php echo $xml->page[2]->image ?>");
+    background-image: url("<?php echo $page[2]->image ?>");
     min-height: 400px;
 }
 
 /* Fourth image */
 .bgimg-4 {
-    background-image: url("<?php echo $xml->page[3]->image ?>");
+    background-image: url("<?php echo $page[3]->image ?>");
     min-height: 400px;
 }
 
 /* Fifth image */
 .bgimg-5 {
-    background-image: url("<?php echo $xml->page[4]->image ?>");
+    background-image: url("<?php echo $page[4]->image ?>");
     min-height: 400px;
 }
 
 /* Sixth image */
 .bgimg-6 {
-    background-image: url("<?php echo $xml->page[5]->image ?>");
+    background-image: url("<?php echo $page[5]->image ?>");
     min-height: 400px;
 }
 
@@ -106,8 +105,8 @@ body, html {
     <a href="#home" class="w3-bar-item w3-button">HOME</a>
    <?php
    for($i=1;$i<=6;$i++) {
-     if(strlen($xml->page[$i-1]->name)>2) 
-        echo "<a href='#p".$i."' class='w3-bar-item w3-button w3-hide-small'>" . ic_html($xml->page[$i-1]->name) . "</a>";
+     if(strlen($page[$i-1]->name)>2) 
+        echo "<a href='#p".$i."' class='w3-bar-item w3-button w3-hide-small'>" . ic_html($page[$i-1]->name) . "</a>";
    }
    ?>  
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
@@ -119,8 +118,8 @@ body, html {
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
    <?php
    for($i=1;$i<=6;$i++) {
-     if(strlen($xml->page[$i-1]->name)>2) 
-        echo "<a href='#p".$i."' class='w3-bar-item w3-button' onclick='toggleFunction()'>" . ic_strip($xml->page[$i-1]->name) . "</a>";
+     if(strlen($page[$i-1]->name)>2) 
+        echo "<a href='#p".$i."' class='w3-bar-item w3-button' onclick='toggleFunction()'>" . ic_strip($page[$i-1]->name) . "</a>";
    }
    ?>  
     <a href="#" class="w3-bar-item w3-button">SEARCH</a>
@@ -135,17 +134,17 @@ body, html {
 </div>
 <?php
    for($i=1;$i<=6;$i++) {
-      if(strlen($xml->page[$i-1]->name)>2) {
-         if(($i > 1) && (strlen($xml->page[$i-1]->image)>4)) {
+      if(strlen($page[$i-1]->name)>2) {
+         if(($i > 1) && (strlen($page[$i-1]->image)>4)) {
             echo "<div class='bgimg-".$i." w3-display-container w3-opacity-min'>";
             echo "<div class='w3-display-middle'>";
-            echo "<span class='w3-xxlarge w3-text-white w3-wide'>".ic_strip($xml->page[$i-1]->name)."</span>";
+            echo "<span class='w3-xxlarge w3-text-white w3-wide'>".ic_strip($page[$i-1]->name)."</span>";
             echo "</div>";
             echo "</div>";
          }
          echo "<div class='w3-content w3-container w3-padding-64' id='p".$i."'>";
-         echo trim($xml->page[$i-1]->contents);
-         if($xml->page[$i-1]['type']=="comments") {
+         echo trim($page[$i-1]->contents);
+         if($page[$i-1]['type']=="comments") {
 
          // begin htmlcommentbox.com -->
          echo "<div id='HCB_comment_box'>";
@@ -154,7 +153,7 @@ body, html {
          <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
          <!-- end htmlcommentbox.com --><?php
           }
-          if($xml->page[$i-1]['type']=="form") {
+          if($page[$i-1]['type']=="form") {
     ?>   <div>
          <div class="w3-half">    
            <form action="#alert" role="form" method="post">
