@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
@@ -18,9 +11,19 @@
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
    $xml2=simplexml_load_file("data/website2.xml") or die("Error: Cannot create object");
-   //print_r($xml);
-   //echo $xml->image[1];
+   $xpath="/website/page[position()=".$p."]";
+   if ($w=="2") $page = $xml2->xpath($xpath); else $page = $xml->xpath($xpath);
+
+   $lang = $page[0]['language'];
+   if ($lang == "") $lang="en";
 ?>
+<!DOCTYPE html>
+<html lang="<?php echo $lang ?>">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>
   .affix {
@@ -81,18 +84,16 @@ t1 { white-space: pre-wrap;}
            <div class="panel panel-primary">
                <div class="panel-body">
                      <?php
-                        if($w=="1")
-                           if(strlen($xml->page[$p-1]->image)>4) {
-                              echo "<img src='".$xml->page[$p-1]->image."' style='width: 100%;height: auto;'>\n";
-                              echo "<br>\n";
-                           }
+						if(strlen($page[0]->image)>4) {
+						  echo "<img src='".$page[0]->image."' style='width: 100%;height: auto;'>\n";
+						  echo "<br>\n";
+						}
                         if($name=="") dispContents($p,ltrim($b,"_"),$w);
                         else if(sendDb($name,$phone,$email,$message))
                                 echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
                              else echo "<b>Missing Name or Contact Info.</b>";
                         echo "\n";
-                        if((($xml->page[$p-1]['type']=="form" && $w=="1") || 
-                           ($xml2->page[$p-1]['type']=="form" && $w=="2")) && $name=="") {
+                        if($page[0]['type']=="form" && $name=="") {
                      ?>
                            <form class="form-horizontal" role="form" method="post">
                               <div class="form-group">
@@ -123,7 +124,7 @@ t1 { white-space: pre-wrap;}
                               </div>
                            </form><?php
                         }
-                        if($xml->page[$p-1]['type']=="comments" && $w=="1" && $name=="") {
+                        if($page[0]['type']=="comments" && $w=="1" && $name=="") {
                      ?>
                            <!-- begin htmlcommentbox.com -->
                            <div id="HCB_comment_box"><a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
