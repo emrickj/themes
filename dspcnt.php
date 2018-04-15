@@ -17,8 +17,11 @@
    
 function paginatePage($pn) {
    $x = $GLOBALS['xml'];
-   if ($pn > "1") echo "<link rel='prev' href='?p=".($pn - 1)."'>\n";
-   if (($pn < "6") && strlen($x->page[intval($pn)]->name)>2) echo "<link rel='next' href='?p=".($pn + 1)."'>\n";
+   $ws = $GLOBALS['w'];
+   if ($ws=="1") {
+	   if ($pn > "1") echo "<link rel='prev' href='?p=".($pn - 1)."'>\n";
+	   if (($pn < "6") && strlen($x->page[intval($pn)]->name)>2) echo "<link rel='next' href='?p=".($pn + 1)."'>\n";
+   }
 }
 
 function dispContents($pn,$u="",$wn=1) {
