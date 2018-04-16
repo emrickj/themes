@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
    //ini_set('display_errors', 'On');
    //error_reporting(E_ALL);
@@ -17,9 +10,18 @@
    
    $xml=simplexml_load_file("data/website".$b.".xml") or die("<br><br>Error: Cannot create object, please make sure that 'website".$b.".xml' is in the 'data' directory.");
    $xml2=simplexml_load_file("data/website2.xml");
-   //print_r($xml);
-   //echo $xml->image[1];
+   $page=$xml->xpath("/website/page[position()=".$p."]");
+
+   $lang = $page[0]['language'];
+   if ($lang == "") $lang="en";
 ?>
+<!DOCTYPE html>
+<html lang="<?php echo $lang ?>">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>
 t1 { white-space: pre-wrap;}
@@ -34,7 +36,7 @@ t1 { white-space: pre-wrap;}
 }
 
 .bgimg {
-    background-image: url("<?php echo $xml->page[$p-1]->image ?>");
+    background-image: url("<?php echo $page[0]->image ?>");
     background-color: #C0C0C0;
     background-attachment: fixed;
     background-position: center top;
@@ -75,7 +77,7 @@ t1 { white-space: pre-wrap;}
               if($name=="") dispContents($p,ltrim($b,"_"));
                  else if(sendEmail($name,$email,$subject,$message))
                     echo "Contact Information Submitted.  Thank you.";
-              if($xml->page[$p-1]['type']=="form" && $name=="") {
+              if($page[0]['type']=="form" && $name=="") {
            ?>
                  <form class="form-horizontal" role="form" method="post">
                     <div class="form-group">
