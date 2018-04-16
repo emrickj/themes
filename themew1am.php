@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-amber.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
 
    $p = $_GET['p'] ?? '1';
    $w = $_GET['w'] ?? '1';
-   if ($w=="2") echo '<meta name="robots" content="noindex">';
 
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
    $xml2=simplexml_load_file("data/website2.xml") or die("Error: Cannot create object");
-   //print_r($xml);
-   //echo $xml->image[1];
+   $xpath="/website/page[position()=".$p."]";
+   if ($w=="2") $page = $xml2->xpath($xpath); else $page = $xml->xpath($xpath);
    
    function ic_html($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = '<i class="fa">'.substr($pname,0,3).'</i> '.substr($pname,4);
@@ -29,10 +21,19 @@
    //if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
    $mps="http://";
    $mainpage = $mps.$_SERVER['HTTP_HOST'].str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
-   if ($p=="2") echo "<link rel='prev' href='".$mainpage."'>"; else
-      if ($p > "1") echo "<link rel='prev' href='?p=".($p - 1)."'>";
-   if (($p < "6") && strlen($xml->page[intval($p)]->name)>2) echo "<link rel='next' href='?p=".($p + 1)."'>";
+
+   $lang = $page[0]['language'];
+   if ($lang == "") $lang="en";
 ?>
+<!DOCTYPE html>
+<html lang="<?php echo $lang ?>">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php if ($w=="2") echo "<meta name='robots' content='noindex'>\n" ?>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-amber.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<?php paginatePage($p) ?>
 	<title><?php echo strip_tags($xml->title) ?></title>
 <style>
 t1 { white-space: pre-wrap;}
@@ -77,12 +78,8 @@ t1 { white-space: pre-wrap;}
   <h1><?php echo $xml->title ?></h1>
 </div>
 <?php
-if ($w=="1")
-   if(strlen($xml->page[$p-1]->image)>4)
-      echo "<img class='w3-image' src='".$xml->page[$p-1]->image."' style='width:100%'>\n";
-if ($w=="2")
-   if(strlen($xml2->page[$p-1]->image)>4)
-      echo "<img class='w3-image' src='".$xml2->page[$p-1]->image."' style='width:100%'>\n";
+   if(strlen($page[0]->image)>4)
+      echo "<img class='w3-image' src='".$page[0]->image."' style='width:100%'>\n";
 ?>
 
 <div class="w3-container">
@@ -94,8 +91,7 @@ if ($w=="2")
   echo "\n";?>
 </div>
 <?php
-  if((($xml->page[$p-1]['type']=="form" && $w=="1") || 
-     ($xml2->page[$p-1]['type']=="form" && $w=="2")) && $name=="") {
+  if($page[0]['type']=="form" && $name=="") {
 ?>
      <form class="w3-container" role="form" method="post">
      <div class="w3-row">
@@ -121,7 +117,7 @@ if ($w=="2")
      </div>  
      </form><?php
   }
-  if($xml->page[$p-1]['type']=="comments" && $w=="1" && $name=="") {
+  if($page[0]['type']=="comments" && $w=="1" && $name=="") {
 ?>
      <!-- begin htmlcommentbox.com -->
      <div class="w3-container w3-theme-l3" id="HCB_comment_box"><a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
