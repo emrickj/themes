@@ -15,7 +15,7 @@
    $page = $xml->xpath('/website/page');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -79,9 +79,9 @@ ul.nav-pills {
                    for($i=1;$i<=6;$i++) {
                          if(strlen($page[$i-1]->name)>2) {
                          if($i!=1) {
-                            echo "<div id='p".$i."'>";
+                            echo "<div id='p".$i."' lang='".$page[$i-1]['language']."'>";
                             echo "<div style='padding-top: 50px;'></div>";
-                         } else echo "<div>";
+                         } else echo "<div lang='".$page[0]['language']."'>";
                          if(strlen($page[$i-1]->image)>4)
                             echo "<img class='img-responsive' style='display: block;margin: auto;' src='".$page[$i-1]->image."'>\n";
                          echo trim($page[$i-1]->contents);

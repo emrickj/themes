@@ -70,7 +70,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 <?php
    for($i=1;$i<=4;$i++) {
       if(strlen($page[$i-1]->name)>2) {
-         echo "<div class='w3-padding-64' id='".$i."'>";
+         echo "<div class='w3-padding-64' id='".$i."' lang='".$page[$i-1]['language']."'>";
          echo trim($page[$i-1]->contents);
          echo "</div>";
       }

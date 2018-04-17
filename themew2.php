@@ -66,7 +66,7 @@ body {font-size:16px;}
 <?php
    for($i=1;$i<=6;$i++) {
       if(strlen($page[$i-1]->name)>2) {
-         echo "<div class='w3-container' style='margin-top:80px' id='".$i."'>";
+         echo "<div class='w3-container' style='margin-top:80px' id='".$i."' lang='".$page[$i-1]['language']."'>";
          echo "<h1 class='w3-xxxlarge w3-text-red'><b>".$page[$i-1]->name.".</b></h1>";
          echo "<hr style='width:50px;border:5px solid red' class='w3-round'>";
       }

@@ -91,7 +91,7 @@
 <?php
    for($i=1;$i<=6;$i++) {
       if(strlen($page[$i-1]->name)>2) {
-         echo "<div id='p".$i."' class='container-fluid'>";
+         echo "<div id='p".$i."' class='container-fluid' lang='".$page[$i-1]['language']."'>";
          if($i>1)
             if(strlen($page[$i-1]->image)>4)
                echo "<img class='img-responsive' style='display: block;margin: auto;' src='".$page[$i-1]->image."'>\n";

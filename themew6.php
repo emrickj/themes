@@ -59,7 +59,7 @@
 <?php
    for($i=1;$i<=3;$i++) {
       if(strlen($page[$i-1]->name)>2) {
-         echo "<div class='w3-container w3-padding-32' id='p".$i."'>";
+         echo "<div class='w3-container w3-padding-32' id='p".$i."' lang='".$page[$i-1]['language']."'>";
          echo "<h3 class='w3-border-bottom w3-border-light-grey w3-padding-16'>".$page[$i-1]->name."</h3>";
          echo trim($page[$i-1]->contents);
          if($page[$i-1]['type']=="comments") {

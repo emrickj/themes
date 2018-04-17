@@ -79,7 +79,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <!-- Page Content -->
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-black" id="p1">
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="p1" lang="<?php echo $page[0]['language'] ?>">
 <?php
     echo trim($page[0]->contents);
 ?>
@@ -90,7 +90,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
    for($i=2;$i<=4;$i++) {
       if($page[$i-1]['type']=="page")
          if(strlen($page[$i-1]->name)>2) {     
-            echo "<div class='w3-padding-64 w3-content' id='p".$i."'>";
+            echo "<div class='w3-padding-64 w3-content' id='p".$i."' lang='".$page[$i-1]['language']."'>";
             echo trim($page[$i-1]->contents);
             echo "</div>";
          }

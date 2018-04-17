@@ -109,7 +109,7 @@ body, html {
    for($i=1;$i<=6;$i++) {
       if($page[$i-1]['type']=="page")
          if(strlen($page[$i-1]->name)>2) {     
-            echo "<div class='w3-container' style='padding:128px 16px' id='p".$i."'>";
+            echo "<div class='w3-container' style='padding:128px 16px' id='p".$i."' lang='".$page[$i-1]['language']."'>";
             echo trim($page[$i-1]->contents);
             echo "</div>";
          }

@@ -142,7 +142,7 @@ body, html {
             echo "</div>";
             echo "</div>";
          }
-         echo "<div class='w3-content w3-container w3-padding-64' id='p".$i."'>";
+         echo "<div class='w3-content w3-container w3-padding-64' id='p".$i."' lang='".$page[$i-1]['language']."'>";
          echo trim($page[$i-1]->contents);
          if($page[$i-1]['type']=="comments") {
 
