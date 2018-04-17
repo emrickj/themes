@@ -8,7 +8,6 @@
    $si=(include 'dspcnt.php') or die("<br><br>Error: Unable to access 'dspcnt.php'.  Make sure this file is in the directory where the theme file is.");
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("<br><br>Error: Cannot create object, please make sure that 'website".$b.".xml' is in the 'data' directory.");
-   $xml2=simplexml_load_file("data/website2.xml");
    $page=$xml->xpath("/website/page[position()=".$p."]");
    
    function ic_html($pname) {
