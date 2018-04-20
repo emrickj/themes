@@ -12,7 +12,7 @@
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   $page = $xml->xpath('/website/page');
+   $page = $xml->xpath("/website/page[name!='']");
 ?>
 <!DOCTYPE html>
 <html>
@@ -76,67 +76,66 @@ ul.nav-pills {
            <div class="panel panel-primary">
                <div class="panel-body">
                 <?php
-                   for($i=1;$i<=6;$i++) {
-                         if(strlen($page[$i-1]->name)>2) {
-                         if($i!=1) {
-                            echo "<div id='p".$i."' lang='".$page[$i-1]['language']."'>";
-                            echo "<div style='padding-top: 50px;'></div>";
-                         } else echo "<div lang='".$page[0]['language']."'>";
-                         if(strlen($page[$i-1]->image)>4)
-                            echo "<img class='img-responsive' style='display: block;margin: auto;' src='".$page[$i-1]->image."'>\n";
-                         echo trim($page[$i-1]->contents);
-                         if($page[$i-1]['type']=="comments") {
+				   $i=0;
+                   foreach ($page as $item) {
+					 if(++$i!=1) {
+						echo "<div id='p".$i."' lang='".$item['language']."'>";
+						echo "<div style='padding-top: 50px;'></div>";
+					 } else echo "<div lang='".$item['language']."'>";
+					 if(strlen($item->image)>4)
+						echo "<img class='img-responsive' style='display: block;margin: auto;' src='".$item->image."'>\n";
+					 echo trim($item->contents);
+					 if($item['type']=="comments") {
 
-                         // begin htmlcommentbox.com -->
-                         echo "<div id='HCB_comment_box' style='color: inherit; background-color: inherit;'>";
-                    ?>   <a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
-                         <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/default/skin.css" />
-                         <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-                         <!-- end htmlcommentbox.com --><?php
-                          }
-                          if($page[$i-1]['type']=="form") {
-                    ?>    <form class="form-horizontal" role="form" method="post">
-                            <div class="form-group">
-                               <label class="control-label col-sm-3" for="name">Name:</label>
-                               <div class="col-sm-6">
-                                  <input type="text" class="form-control" name="name">
-                               </div>
-                            </div>
-                            <div class="form-group">
-                               <label class="control-label col-sm-3" for="phone">Contact Phone #:</label>
-                               <div class="col-sm-6">
-                                  <input type="text" class="form-control" name="phone">
-                               </div>
-                            </div>
-                            <div class="form-group">
-                               <label class="control-label col-sm-3" for="email">Email Address:</label>
-                               <div class="col-sm-6">
-                                  <input type="email" class="form-control" name="email">
-                               </div>
-                            </div>
-                            <div class="form-group">
-                               <label class="control-label col-sm-3" for="message">Message:</label>
-                               <div class="col-sm-6">
-                                  <textarea class="form-control" rows="5" name="message"></textarea>
-                                  <br>
-                                  <input type="submit" class="btn btn-default" value="Submit">
-                               </div>
-                            </div>
-                         </form>
-                <?php
-                          if ($name!="")
-                            if(sendDb($name,$phone,$email,$message)) {
-                               echo "<div class='alert alert-success'>";
-                               echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
-                               echo "</div>";
-                            } else {
-                               echo "<div class='alert alert-info'>";
-                               echo "<b>Missing Name or Contact Info.</b>";
-                               echo "</div>";
-                            }
-                        }
-                        echo "</div>";
-                     }
+					 // begin htmlcommentbox.com -->
+					 echo "<div id='HCB_comment_box' style='color: inherit; background-color: inherit;'>";
+				?>   <a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+					 <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/default/skin.css" />
+					 <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+					 <!-- end htmlcommentbox.com --><?php
+					  }
+					  if($item['type']=="form") {
+				?>    <form class="form-horizontal" role="form" method="post">
+						<div class="form-group">
+						   <label class="control-label col-sm-3" for="name">Name:</label>
+						   <div class="col-sm-6">
+							  <input type="text" class="form-control" name="name">
+						   </div>
+						</div>
+						<div class="form-group">
+						   <label class="control-label col-sm-3" for="phone">Contact Phone #:</label>
+						   <div class="col-sm-6">
+							  <input type="text" class="form-control" name="phone">
+						   </div>
+						</div>
+						<div class="form-group">
+						   <label class="control-label col-sm-3" for="email">Email Address:</label>
+						   <div class="col-sm-6">
+							  <input type="email" class="form-control" name="email">
+						   </div>
+						</div>
+						<div class="form-group">
+						   <label class="control-label col-sm-3" for="message">Message:</label>
+						   <div class="col-sm-6">
+							  <textarea class="form-control" rows="5" name="message"></textarea>
+							  <br>
+							  <input type="submit" class="btn btn-default" value="Submit">
+						   </div>
+						</div>
+					 </form>
+			<?php
+					  if ($name!="")
+						if(sendDb($name,$phone,$email,$message)) {
+						   echo "<div class='alert alert-success'>";
+						   echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
+						   echo "</div>";
+						} else {
+						   echo "<div class='alert alert-info'>";
+						   echo "<b>Missing Name or Contact Info.</b>";
+						   echo "</div>";
+						}
+					 }
+					 echo "</div>";
                    }
                 ?>               
                </div>          

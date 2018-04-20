@@ -65,25 +65,19 @@ function displayMenu_nb($pn,$wn=1,$ws=1) {
 }
 
 function displayMenu_a() {
-   $x = $GLOBALS['xml'];
-   for($i=1;$i<=6;$i++) {
-      if(strlen($x->page[$i-1]->name)>2) {
-         echo "<li><a href='#p".$i."'>" . str_replace('"fa','"fa fa-fw',ic_html($x->page[$i-1]->name))
-               . "</a></li>\n";
-      }
-   }   
+   $pn = $GLOBALS['page'];
+   $i=1;
+   foreach ($pn as $item) {
+      echo "<li><a href='#p".$i++."'>" . ic_html($item->name) . "</a></li>\n";
+   }
 }
 
 // function below is used for Bootstrap 4.0 Navigation
 
 function displayMenu_na() {
-   $x = $GLOBALS['xml'];
-   for($i=1;$i<=6;$i++) {
-      if(strlen($x->page[$i-1]->name)>2) {
-         echo "<li class='nav-item'><a class='nav-link' href='#p".$i."'>" . str_replace('"fa','"fa fa-fw',ic_html($x->page[$i-1]->name))
-               . "</a></li>\n";
-      }
-   }   
+   $pn = $GLOBALS['page'];
+   $i=1;
+   foreach ($pn as $item) {
+	  echo "<li class='nav-item'><a class='nav-link' href='#p".$i++."'>" . ic_html($item->name) . "</a></li>\n";
+   }	   
 }
-
-?>
