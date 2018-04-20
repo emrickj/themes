@@ -8,7 +8,7 @@
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   $page = $xml->xpath('/website/page');
+   $page = $xml->xpath("/website/page[name!='']");
    
    function ic_html($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = '<i class="fa">'.substr($pname,0,3).'</i> '.strtoupper(substr($pname,4));
@@ -60,11 +60,9 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
    <?php
-   for($i=1;$i<=6;$i++) {
-     if(strlen($page[$i-1]->name)>2) {
-        echo "<a href='#p".$i."' class='w3-bar-item w3-button'>" . ic_html($page[$i-1]->name) . "</a>";
-     }
-   }
+   $i=1;
+   foreach ($page as $item)
+      echo "<a href='#p".$i++."' class='w3-bar-item w3-button'>" . ic_html($item->name) . "</a>";
    ?>  
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
@@ -79,11 +77,9 @@ body, html {
 <nav class="w3-sidebar w3-bar-block w3-black w3-card-2 w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close &#xD7;</a>
    <?php
-   for($i=1;$i<=6;$i++) {
-     if(strlen($page[$i-1]->name)>2) {
-        echo "<a href='#p".$i."' onclick='w3_close()' class='w3-bar-item w3-button'>" . ic_strip($page[$i-1]->name) . "</a>";
-     }
-   }
+   $i=1;
+   foreach ($page as $item)
+      echo "<a href='#p".$i++."' onclick='w3_close()' class='w3-bar-item w3-button'>" . ic_strip($item->name) . "</a>";
    ?>  
 </nav>
 
@@ -106,27 +102,27 @@ body, html {
 </header>
 
 <?php
-   for($i=1;$i<=6;$i++) {
-      if($page[$i-1]['type']=="page")
-         if(strlen($page[$i-1]->name)>2) {     
-            echo "<div class='w3-container' style='padding:128px 16px' id='p".$i."' lang='".$page[$i-1]['language']."'>";
-            echo trim($page[$i-1]->contents);
-            echo "</div>";
-         }
-      if($page[$i-1]['type']=="comments") {
+   $i=1;
+   foreach ($page as $item) {
+      if($item['type']=="page") {
+		echo "<div class='w3-container' style='padding:128px 16px' id='p".$i++."' lang='".$item['language']."'>";
+		echo trim($item->contents);
+		echo "</div>";
+	  }
+      if($item['type']=="comments") {
 
      // begin htmlcommentbox.com -->
-     echo "<div id='p".$i."'></div>";
+     echo "<div id='p".$i++."'></div>";
      echo "<div class='w3-container' id='HCB_comment_box' style='padding:128px 16px'>";
 ?>   <a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
      <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/default/skin.css" />
      <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
      <!-- end htmlcommentbox.com --><?php
       }
-      if($page[$i-1]['type']=="form") {
+      if($item['type']=="form") {
 
-     echo "<div class='w3-container w3-light-grey' style='padding:128px 16px' id='p".$i."'>";
-     echo trim($page[$i-1]->contents);
+     echo "<div class='w3-container w3-light-grey' style='padding:128px 16px' id='p".$i++."'>";
+     echo trim($item->contents);
 ?>   <div class="w3-row-padding" style="margin-top:64px">
      <div class="w3-half">
        <form action="#alert" class="w3-container" role="form" method="post">
@@ -161,7 +157,7 @@ body, html {
            echo "<b>Missing Name or Contact Info.</b>";
            echo "</div>";
         }
-     }
+      }
    }
 ?>   </div>  
      </div>

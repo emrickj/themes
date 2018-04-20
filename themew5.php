@@ -8,7 +8,7 @@
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   $page = $xml->xpath('/website/page');
+   $page = $xml->xpath("/website/page[name!='' and position()<=4]");
    
    function icon($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = substr($pname,0,3);
@@ -53,12 +53,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <p><?php echo ic_strip($page[0]->name) ?></p>
   </a>
    <?php
-   for($i=2;$i<=4;$i++) {
-     if(strlen($page[$i-1]->name)>2) {
+   $i=0;
+   foreach ($page as $item)
+     if(++$i!=1)
         echo "<a href='#p".$i."' class='w3-bar-item w3-button w3-padding-large w3-hover-black'><i class='fa w3-xxlarge'>"
-        . icon($page[$i-1]->name) . "</i><p>" . ic_strip($page[$i-1]->name) . "</p></a>";
-     }
-   }
+        . icon($item->name) . "</i><p>" . ic_strip($item->name) . "</p></a>";
    ?>  
 </nav>
 
@@ -66,12 +65,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
    <?php
-   for($i=1;$i<=4;$i++) {
-     if(strlen($page[$i-1]->name)>2) {
-        echo "<a href='#p".$i."' class='w3-bar-item w3-button' style='width:25% !important'>"
-        . ic_strip($page[$i-1]->name) . "</a>";
-     }
-   }
+   $i=1;
+   foreach ($page as $item)
+	 echo "<a href='#p".$i++."' class='w3-bar-item w3-button' style='width:25% !important'>"
+	 . ic_strip($item->name) . "</a>";
    ?>  
   </div>
 </div>
@@ -87,66 +84,68 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   </header>
 
 <?php
-   for($i=2;$i<=4;$i++) {
-      if($page[$i-1]['type']=="page")
-         if(strlen($page[$i-1]->name)>2) {     
-            echo "<div class='w3-padding-64 w3-content' id='p".$i."' lang='".$page[$i-1]['language']."'>";
-            echo trim($page[$i-1]->contents);
-            echo "</div>";
-         }
-      if($page[$i-1]['type']=="comments") {
+   $i=0;
+   foreach ($page as $item) {
+	   if (++$i!=1) {
+		  if($item['type']=="page") {
+			echo "<div class='w3-padding-64 w3-content' id='p".$i."' lang='".$item['language']."'>";
+			echo trim($item->contents);
+			echo "</div>";
+		  }
+		  if($item['type']=="comments") {
 
-     // begin htmlcommentbox.com -->
-     echo "<div id='p".$i."'></div>";
-     echo "<div class='w3-padding-64 w3-content w3-black' id='HCB_comment_box'>";
-?>   <a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
-     <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/default/skin.css" />
-     <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-     <!-- end htmlcommentbox.com --><?php
-      }
-      if($page[$i-1]['type']=="form") {
+		 // begin htmlcommentbox.com -->
+		 echo "<div id='p".$i."'></div>";
+		 echo "<div class='w3-padding-64 w3-content w3-black' id='HCB_comment_box'>";
+	?>   <a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+		 <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/default/skin.css" />
+		 <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+		 <!-- end htmlcommentbox.com --><?php
+		  }
+		  if($item['type']=="form") {
 
-     echo "<div class='w3-padding-64 w3-content' id='p".$i."'>";
-     echo trim($page[$i-1]->contents);
-?>   <div class="w3-row-padding">
-     <div class="w3-half">
-       <form action="#alert" class="w3-container" role="form" method="post">
-       <p>
-          <label for="name">Name:</label>
-          <input type="text" class="w3-input w3-border" name="name">
-       </p>
-       <p>
-          <label for="phone">Contact Phone #:</label>
-          <input type="text" class="w3-input w3-border" name="phone">
-       </p>
-       <p>
-          <label for="email">Email Address:</label>
-          <input type="email" class="w3-input w3-border" name="email">
-       </p>
-       <p>
-          <label for="message">Message:</label>
-          <textarea class="w3-input w3-border" rows="5" name="message"></textarea>
-       </p>
-       <button class="w3-button w3-light-grey w3-margin-bottom" type="submit" id="alert">
-            <i class="fa fa-paper-plane"></i> SEND MESSAGE
-          </button>
-       </form>
-<?php
-      if ($name!="")
-        if(sendDb($name,$phone,$email,$message)) {
-           echo "<div class='w3-panel w3-green' id='alert'>";
-           echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
-           echo "</div>";
-        } else {
-           echo "<div class='w3-panel w3-blue' id='alert'>";
-           echo "<b>Missing Name or Contact Info.</b>";
-           echo "</div>";
-        }
-?>
-     </div>
-     </div>
-     </div><?php
-     }
+		 echo "<div class='w3-padding-64 w3-content' id='p".$i."'>";
+		 echo trim($item->contents);
+	?>   <div class="w3-row-padding">
+		 <div class="w3-half">
+		   <form action="#alert" class="w3-container" role="form" method="post">
+		   <p>
+			  <label for="name">Name:</label>
+			  <input type="text" class="w3-input w3-border" name="name">
+		   </p>
+		   <p>
+			  <label for="phone">Contact Phone #:</label>
+			  <input type="text" class="w3-input w3-border" name="phone">
+		   </p>
+		   <p>
+			  <label for="email">Email Address:</label>
+			  <input type="email" class="w3-input w3-border" name="email">
+		   </p>
+		   <p>
+			  <label for="message">Message:</label>
+			  <textarea class="w3-input w3-border" rows="5" name="message"></textarea>
+		   </p>
+		   <button class="w3-button w3-light-grey w3-margin-bottom" type="submit" id="alert">
+				<i class="fa fa-paper-plane"></i> SEND MESSAGE
+			  </button>
+		   </form>
+	<?php
+		  if ($name!="")
+			if(sendDb($name,$phone,$email,$message)) {
+			   echo "<div class='w3-panel w3-green' id='alert'>";
+			   echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
+			   echo "</div>";
+			} else {
+			   echo "<div class='w3-panel w3-blue' id='alert'>";
+			   echo "<b>Missing Name or Contact Info.</b>";
+			   echo "</div>";
+			}
+	?>
+		 </div>
+		 </div>
+		 </div><?php
+		 }
+	   }
    }
 ?>  
     <!-- Footer -->

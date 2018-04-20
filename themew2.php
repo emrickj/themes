@@ -8,7 +8,7 @@
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   $page = $xml->xpath('/website/page');
+   $page = $xml->xpath("/website/page[name!='']");
    
    function ic_html($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = '<i class="fa">'.substr($pname,0,3).'</i> '.substr($pname,4);
@@ -41,9 +41,9 @@ body {font-size:16px;}
   </div>
   <div class="w3-bar-block">
    <?php
-   for($i=1;$i<=6;$i++) {
-     if(strlen($page[$i-1]->name)>2) 
-        echo "<a href='#".$i."' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>" . ic_html($page[$i-1]->name) . "</a>";
+   $i=1;
+   foreach ($page as $item) {
+      echo "<a href='#".$i++."' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>" . ic_html($item->name) . "</a>";
    }
    ?>  
 </nav>
@@ -64,17 +64,16 @@ body {font-size:16px;}
     <h1 class="w3-jumbo"><b><?php echo strip_tags($xml->title) ?></b></h1>
   </div>
 <?php
-   for($i=1;$i<=6;$i++) {
-      if(strlen($page[$i-1]->name)>2) {
-         echo "<div class='w3-container' style='margin-top:80px' id='".$i."' lang='".$page[$i-1]['language']."'>";
-         echo "<h1 class='w3-xxxlarge w3-text-red'><b>".$page[$i-1]->name.".</b></h1>";
-         echo "<hr style='width:50px;border:5px solid red' class='w3-round'>";
-      }
-      if(strlen($page[$i-1]->image)>4)
-         echo "<img class='w3-image' src='".$page[$i-1]->image."' style='width:100%'>\n";
-      echo trim($page[$i-1]->contents);
+   $i=1;
+   foreach ($page as $item) {
+	  echo "<div class='w3-container' style='margin-top:80px' id='".$i++."' lang='".$item['language']."'>";
+	  echo "<h1 class='w3-xxxlarge w3-text-red'><b>".$item->name.".</b></h1>";
+	  echo "<hr style='width:50px;border:5px solid red' class='w3-round'>";
+      if(strlen($item->image)>4)
+         echo "<img class='w3-image' src='".$item->image."' style='width:100%'>\n";
+      echo trim($item->contents);
       echo "</div>";
-      if($page[$i-1]['type']=="comments") {
+      if($item['type']=="comments") {
 ?>
      <!-- begin htmlcommentbox.com -->
      <div class="w3-container" id="HCB_comment_box"><a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
@@ -82,7 +81,7 @@ body {font-size:16px;}
      <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
      <!-- end htmlcommentbox.com --><?php
       }
-      if($page[$i-1]['type']=="form") {
+      if($item['type']=="form") {
 ?>
      <form action="#alert" class="w3-container" role="form" method="post">
      <div class="w3-row">
@@ -117,7 +116,7 @@ body {font-size:16px;}
            echo "<b>Missing Name or Contact Info.</b>";
            echo "</div>";
         }
-     }
+      }
    }
 ?>
 

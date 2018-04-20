@@ -8,7 +8,7 @@
    require 'dspcnt.php';
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
-   $page = $xml->xpath('/website/page');
+   $page = $xml->xpath("/website/page[name!='' and position()<=4]");
    
    function ic_html($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = '<i class="fa">'.substr($pname,0,3).'</i> '.substr($pname,4);
@@ -38,12 +38,11 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-row w3-large w3-light-grey">
    <?php
-   for($i=1;$i<=4;$i++) {
-     if(strlen($page[$i-1]->name)>2) {
-        echo "<div class='w3-col s3'>";
-        echo "<a href='#".$i."' class='w3-button w3-block'>" . ic_html($page[$i-1]->name) . "</a>";
-        echo "</div>";
-     }
+   $i=1;
+   foreach ($page as $item) {
+	 echo "<div class='w3-col s3'>";
+	 echo "<a href='#".$i++."' class='w3-button w3-block'>" . ic_html($item->name) . "</a>";
+	 echo "</div>";
    }
    ?>  
   </div>
@@ -60,21 +59,19 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   </div>
 
 <?php
-   for($i=1;$i<=6;$i++) {
-      if(strlen($page[$i-1]->image)>4)
-         echo "<img class='mySlides' src='".$page[$i-1]->image."' style='width:100%'>\n";
-   }
+   $img = $xml->xpath("/website/page/image[string-length()!=0]");
+   foreach ($img as $item)
+      echo "<img class='mySlides' src='".$item."' style='width:100%'>\n";
 ?>
 </div>
 
 <?php
-   for($i=1;$i<=4;$i++) {
-      if(strlen($page[$i-1]->name)>2) {
-         echo "<div class='w3-padding-64' id='".$i."' lang='".$page[$i-1]['language']."'>";
-         echo trim($page[$i-1]->contents);
-         echo "</div>";
-      }
-      if($page[$i-1]['type']=="comments") {
+   $i=1;
+   foreach ($page as $item) {
+	  echo "<div class='w3-padding-64' id='".$i++."' lang='".$item['language']."'>";
+	  echo trim($item->contents);
+	  echo "</div>";
+      if($item['type']=="comments") {
 ?>
      <!-- begin htmlcommentbox.com -->
      <div class="w3-container" id="HCB_comment_box"><a href="https://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
@@ -82,7 +79,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
      <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
      <!-- end htmlcommentbox.com --><?php
       }
-      if($page[$i-1]['type']=="form") {
+      if($item['type']=="form") {
 ?>
      <form action="#alert" class="w3-container" role="form" method="post">
      <div class="w3-row">
