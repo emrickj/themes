@@ -46,7 +46,10 @@ t1 { white-space: pre-wrap;}
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <?php displayMenu($p) ?>
+        <?php
+         $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+		 displayMenu_x($pn);
+		?>
       </ul>
     </div>
   </div>
@@ -62,19 +65,22 @@ t1 { white-space: pre-wrap;}
          <div class="col-sm-3">
              <div class="hidden-xs" style="padding: 20px" data-spy="affix" data-offset-top="103">
                 <div class="btn-group-vertical btn-group-lg">
-                   <?php
-                   for($i=1;$i<=6;$i++) {
-                     if($i==$p && $w=="1" && $name=="") $bs="active"; else $bs="";
-                     if(strlen($xml->page[$i-1]->name)>2) 
-                        echo "<a href='?u=".ltrim($b,"_")."&p=".$i."' class='btn btn-primary "
-                        .$bs."'>" . ic_html($xml->page[$i-1]->name) . "</a>";
-                   }
-                   ?>
-                   <ul class="dropdown-menu" role="menu">
-                   <?php displayMenu($p,"active",$w,2) ?>
-                   </ul>
-                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                   <?php echo strip_tags($xml2->title) ?> <span class="caret"></span></button>
+                     <?php
+					 $i=1;
+                     foreach ($pn as $item) {
+                       if($i==$p && $w=="1" && $name=="") $bs="active"; else $bs="";
+                       echo "<a href='?u=".ltrim($b,"_")."&p=".$i++."' class='btn btn-primary "
+                       .$bs."'>" . ic_html($item) . "</a>";
+                     }
+                     ?>
+                     <ul class="dropdown-menu" role="menu">
+                     <?php
+						$pn2=$xml2->xpath("/website/page/name[string-length()!=0]");
+					    displayMenu_x($pn2,2);						
+					 ?>
+                     </ul>
+                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                     <?php echo strip_tags($xml2->title) ?> <span class="caret"></span></button>
                 </div>
                 <br>
                 <br>

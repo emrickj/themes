@@ -49,7 +49,10 @@
   </button>
   <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="navbar-nav">
-       <?php displayMenu_nb($p) ?>
+        <?php
+         $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+		 displayMenu_xn($pn);
+		?>
 	</ul>
   </div>
 </nav>
@@ -71,16 +74,19 @@
          <div class="col-md-3 d-none d-md-block">
                   <br>
                   <div class="btn-group-vertical btn-group-lg" style="position: fixed;">
-                      <?php
-                     for($i=1;$i<=6;$i++) {
+                     <?php
+					 $i=1;
+                     foreach ($pn as $item) {
                        if($i==$p && $w=="1" && $name=="") $bs="active"; else $bs="";
-                       if(strlen($xml->page[$i-1]->name)>2) 
-					      echo "<a href='?u=".ltrim($b,"_")."&p=".$i."' class='btn btn-primary "
-                          .$bs."'>" . ic_html($xml->page[$i-1]->name) . "</a>";
+                       echo "<a href='?u=".ltrim($b,"_")."&p=".$i++."' class='btn btn-primary "
+                       .$bs."'>" . ic_html($item) . "</a>";
                      }
                      ?>
                      <ul class="dropdown-menu" role="menu">
-                     <?php displayMenu_dd($p,$w,2) ?>
+                     <?php
+						$pn2=$xml2->xpath("/website/page/name[string-length()!=0]");
+					    displayMenu_xd($pn2,2);						
+					 ?>
                      </ul>
                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                      <?php echo strip_tags($xml2->title) ?> <span class="caret"></span></button>
