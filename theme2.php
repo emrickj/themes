@@ -42,7 +42,10 @@ t1 { white-space: pre-wrap;}
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <?php displayMenu($p) ?>
+        <?php
+         $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+		 displayMenu_x($pn);
+		?>
       </ul>
     </div>
   </div>

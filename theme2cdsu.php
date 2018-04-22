@@ -16,18 +16,18 @@
 
    // function below is used for Bootstrap 4.0 Navigation Bar for this current theme
 
-   function displayMenu_nban($pn) {
-	   $x = $GLOBALS['xml'];
+   function displayMenu_nban($pa) {
 	   $u = $GLOBALS['b'];
 	   $n = $GLOBALS['name'];
+	   $pn = $GLOBALS['p'];
 	   if($u!="") $us="u=".ltrim($u,"_")."&"; else $us="";
-	   for($i=1;$i<=6;$i++) {
+	   $i=1;
+	   foreach($pa as $item) {
 		  if($i==$pn && $n=="") $bs=" active"; else $bs="";
-		  if(strlen($x->page[$pn-1]->image)>4)
-		     if(strlen($x->page[$i-1]->image)<=4) $bs .= " img-hide";
-		  if(strlen($x->page[$i-1]->name)>2) 
-			 echo "<li class='nav-item'><a class='nav-link".$bs."' href='?".$us."p=".$i."'>"
-				. str_replace('"fa','"fa fa-fw',ic_html($x->page[$i-1]->name)) . "</a></li>\n";
+		  if(strlen($pa[$pn-1]->image)>4)
+		     if(strlen($item->image)<=4) $bs .= " img-hide";
+		  echo "<li class='nav-item'><a class='nav-link".$bs."' href='?".$us."p=".$i++."'>"
+		  . str_replace('"fa','"fa fa-fw',ic_html($item->name)) . "</a></li>\n";
 	   }
    }
 ?>
@@ -62,7 +62,10 @@
 		  </button>
 			<div class="collapse navbar-collapse" id="myNavbar">
 			  <ul class="navbar-nav">
-				<?php displayMenu_nban($p) ?>
+				<?php
+				 $pg=$xml->xpath("/website/page[name!='']");
+				 displayMenu_nban($pg);
+				?>
 			  </ul>
 			</div>
 		</nav>

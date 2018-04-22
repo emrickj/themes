@@ -47,7 +47,10 @@ t1 { white-space: pre-wrap;}
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <?php displayMenu($p) ?>
+        <?php
+         $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+		 displayMenu_x($pn);
+		?>
       </ul>
     </div>
   </div>
@@ -69,7 +72,7 @@ t1 { white-space: pre-wrap;}
 			<text font-size="45" font-weight="bold" x="0" y="45" fill="rgb(191,191,255)" filter="url(#lightMe1)"><?php echo $xml->title ?></text> 
 		 </svg>
 		  <ul class="list-inline">
-			<?php displayMenu($p) ?>
+			<?php displayMenu_x($pn) ?>
 		  </ul>
 	   </div>
 	   <div class="panel-body">

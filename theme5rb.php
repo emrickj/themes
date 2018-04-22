@@ -72,7 +72,10 @@
 			  </button>
 				<div class="collapse navbar-collapse" id="myNavbar">
 				  <ul class="navbar-nav">
-					<?php displayMenu_nb($p) ?>
+					<?php
+					 $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+					 displayMenu_xn($pn);
+					?>
 				  </ul>
 				</div>
 			</nav>

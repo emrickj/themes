@@ -8,7 +8,7 @@ function ic_html($pname) {
 
 function displayMenu_x($pname,$ws=1,$as="active") {
 	$pn = $GLOBALS['p'];
-	$wn = $GLOBALS['w'];
+	$wn = isset($_GET['w']) ? $_GET['w'] : "1";
 	$u = $GLOBALS['b'];
 	if($u!="") $us="u=".ltrim($u,"_")."&"; else $us="";
 	if($ws>1) $wp="w=".$ws."&"; else $wp="";
@@ -24,7 +24,7 @@ function displayMenu_x($pname,$ws=1,$as="active") {
 
 function displayMenu_xd($pname,$ws=1) {
 	$pn = $GLOBALS['p'];
-	$wn = $GLOBALS['w'];
+	$wn = isset($_GET['w']) ? $_GET['w'] : "1";
 	$u = $GLOBALS['b'];
 	if($u!="") $us="u=".ltrim($u,"_")."&"; else $us="";
 	if($ws>1) $wp="w=".$ws."&"; else $wp="";
@@ -40,7 +40,7 @@ function displayMenu_xd($pname,$ws=1) {
 
 function displayMenu_xn($pname,$ws=1) {
 	$pn = $GLOBALS['p'];
-	$wn = $GLOBALS['w'];
+	$wn = isset($_GET['w']) ? $_GET['w'] : "1";
 	$u = $GLOBALS['b'];
 	if($u!="") $us="u=".ltrim($u,"_")."&"; else $us="";
 	if($ws>1) $wp="w=".$ws."&"; else $wp="";
