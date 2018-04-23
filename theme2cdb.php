@@ -9,7 +9,8 @@
    $si=(include 'dspcnt.php') or die("<br><br>Error: Unable to access 'dspcnt.php'.  Make sure this file is in the directory where the theme file is.");
    
    $xml=simplexml_load_file("data/website".$b.".xml") or die("<br><br>Error: Cannot create object, please make sure that 'website".$b.".xml' is in the 'data' directory.");
-   $page=$xml->xpath("/website/page[position()=".$p."]");
+   $page=$xml->xpath("/website/page[".$p."]");
+   changeLinks($page);
 
    $lang = $page[0]['language'];
    if ($lang == "") $lang="en";
@@ -42,7 +43,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 			  <ul class="navbar-nav">
 				<?php
-				 $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+				 $pn=$xml->xpath("/website/page/name[.!='']");
 				 displayMenu_xn($pn);
 				?>
 			  </ul>
@@ -51,7 +52,7 @@
 		<div class='card-body'><?php
 		if(strlen($page[0]->image)>4)
 		   echo "<img class='img-fluid' style='display: block;margin: auto;' src='".$page[0]->image."'>\n";
-		if($name=="") dispContents($p,ltrim($b,"_"));
+		if($name=="") echo $page[0]->contents;
 		   else if(sendEmail($name,$email,$subject,$message))
 			  echo "Contact Information Submitted.  Thank you.";
 		if($page[0]['type']=="form" && $name=="") {
