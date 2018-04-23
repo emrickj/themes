@@ -13,8 +13,9 @@
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
    $xml2=simplexml_load_file("data/website2.xml") or die("Error: Cannot create object");
-   $xpath="/website/page[position()=".$p."]";
+   $xpath="/website/page[".$p."]";
    if ($w=="2") $page = $xml2->xpath($xpath); else $page = $xml->xpath($xpath);
+   changeLinks($page);
 
    $lang = $page[0]['language'];
    if ($lang == "") $lang="en";
@@ -50,7 +51,7 @@ t1 { white-space: pre-wrap;}
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <?php
-         $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+         $pn=$xml->xpath("/website/page/name[.!='']");
 		 displayMenu_x($pn);
 		?>
       </ul>
@@ -85,7 +86,7 @@ t1 { white-space: pre-wrap;}
                      ?>
                      <ul class="dropdown-menu" role="menu">
                      <?php
-						$pn2=$xml2->xpath("/website/page/name[string-length()!=0]");
+						$pn2=$xml2->xpath("/website/page/name[.!='']");
 					    displayMenu_x($pn2,2);						
 					 ?>
                      </ul>
@@ -99,7 +100,7 @@ t1 { white-space: pre-wrap;}
            <div class="panel panel-primary">
                <div class="panel-body">
                      <?php
-                        if($name=="") dispContents($p,ltrim($b,"_"),$w);
+						if($name=="") echo $page[0]->contents;
                         else if(sendDb($name,$phone,$email,$message))
                                 echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
                              else echo "<b>Missing Name or Contact Info.</b>";

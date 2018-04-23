@@ -14,8 +14,9 @@
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
    $xml2=simplexml_load_file("data/website2.xml") or die("Error: Cannot create object");
-   $xpath="/website/page[position()=".$p."]";
+   $xpath="/website/page[".$p."]";
    if ($w=="2") $page = $xml2->xpath($xpath); else $page = $xml->xpath($xpath);
+   changeLinks($page);
    
    error_reporting(0);
    if($_SERVER['HTTPS']) $mps="https://"; else $mps="http://";
@@ -60,7 +61,7 @@
   <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="navbar-nav">
         <?php
-         $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+         $pn=$xml->xpath("/website/page/name[.!='']");
 		 displayMenu_xn($pn);
 		?>
 	</ul>
@@ -87,7 +88,7 @@
                      ?>
                      <ul class="dropdown-menu" role="menu">
                      <?php
-						$pn2=$xml2->xpath("/website/page/name[string-length()!=0]");
+						$pn2=$xml2->xpath("/website/page/name[.!='']");
 					    displayMenu_xd($pn2,2);						
 					 ?>
                      </ul>
@@ -106,7 +107,7 @@
 				 ?>
                <div class="card-body">
 					 <?php
-                        if($name=="") dispContents($p,ltrim($b,"_"),$w);
+                        if($name=="") echo $page[0]->contents;
                         else if(sendDb($name,$phone,$email,$message))
                                 echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
                              else echo "<b>Missing Name or Contact Info.</b>";

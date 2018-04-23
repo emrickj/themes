@@ -12,6 +12,16 @@
    if(isset($_GET['u']) && $_GET['u']!="") $b = "_".$_GET['u'];
       else $b="";
    // echo "--".$b."--";
+
+// Use the following function to change links going to other pages in the website so they go to correct pages.
+
+function changeLinks($pg) {
+	$wn = isset($_GET['w']) ? $_GET['w'] : "1";
+	$u = $GLOBALS['b'];
+    if($u!="") $us="u=".ltrim($u,"_")."&"; else $us="";
+	if($wn>"1") $wp="w=".$wn."&"; else $wp="";
+	$pg[0]->contents=str_replace('"?p=','"?'.$us.$wp.'p=',trim($pg[0]->contents));
+}
    
 // Use the following optional function to help index content of website on search engines.  Place this function in the head section of document.
    
