@@ -47,22 +47,22 @@
 <!-- Navigation bar -->
 <div class="w3-bar w3-black">
   <?php
-  for($i=1;$i<=6;$i++) {
+  $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+  $i=1;
+  foreach ($pn as $item) {
 	if($i==$p && $w=="1" && $name=="") $bs=" w3-gray"; else $bs="";
-	if(strlen($xml->page[$i-1]->name)>2) 
-	  echo "<a href='?u=".ltrim($b,"_")."&p=".$i."' class='w3-bar-item w3-button w3-hide-small".$bs."'>"
-		.ic_html($xml->page[$i-1]->name)."</a>";
+	echo "<a href='?u=".ltrim($b,"_")."&p=".$i++."' class='w3-bar-item w3-button w3-hide-small".$bs."'>"
+	.ic_html($item)."</a>";
   }
   ?>
 	<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="myFunction()">&#9776;</a>
 </div>
 <div id="demo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium">
   <?php
-  for($i=1;$i<=6;$i++) {
+  $i=1;
+  foreach ($pn as $item) {
 	if($i==$p && $w=="1" && $name=="") $bs=" w3-gray"; else $bs="";
-	if(strlen($xml->page[$i-1]->name)>2) 
-	  echo "<a href='?u=".ltrim($b,"_")."&p=".$i."' class='w3-bar-item w3-button".$bs."'>"
-		.ic_html($xml->page[$i-1]->name)."</a>";
+	echo "<a href='?u=".ltrim($b,"_")."&p=".$i++."' class='w3-bar-item w3-button".$bs."'>".ic_html($item)."</a>";
   }
   ?>
 </div>

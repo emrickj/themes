@@ -46,22 +46,23 @@ t1 { white-space: pre-wrap;}
  style="width:200px;" id="mySidebar">
 <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
   <?php
-  for($i=1;$i<=6;$i++) {
+  $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+  $i=1;
+  foreach ($pn as $item) {
     if($i==$p && $w=="1" && $name=="") $bs=" w3-gray w3-animate-opacity"; else $bs="";
-    if(strlen($xml->page[$i-1]->name)>2) 
-      echo "<a href='?u=".ltrim($b,"_")."&p=".$i."' class='w3-bar-item w3-button".$bs."'>"
-        .ic_html($xml->page[$i-1]->name)."</a>";
+    echo "<a href='?u=".ltrim($b,"_")."&p=".$i++."' class='w3-bar-item w3-button".$bs."'>".ic_html($item)."</a>";
   }
   ?>
   <div class="w3-dropdown-click">
     <button onclick="myFunction()" class="w3-button w3-cyan"><?php echo strip_tags($xml2->title) ?> <i class="fa fa-caret-down"></i></button>
     <div id="Demo" class="w3-dropdown-content w3-bar-block w3-animate-opacity">
       <?php
-      for($i=1;$i<=6;$i++) {
+	  $pn2=$xml2->xpath("/website/page/name[string-length()!=0]");
+	  $i=1;
+      foreach ($pn2 as $item) {
          if($i==$p && $w=="2" && $name=="") $bs=" w3-gray"; else $bs="";
-         if(strlen($xml2->page[$i-1]->name)>2)
-            echo "<a href='?u=".ltrim($b,"_")."&w=2&p=".$i."' class='w3-bar-item w3-button w3-cyan".$bs."'>"
-            . str_replace('"fa','"fa fa-fw',ic_html($xml2->page[$i-1]->name)) . "</a>\n";
+         echo "<a href='?u=".ltrim($b,"_")."&w=2&p=".$i++."' class='w3-bar-item w3-button w3-cyan".$bs."'>"
+         . str_replace('"fa','"fa fa-fw',ic_html($item)) . "</a>\n";
       }
       ?>
     </div>
