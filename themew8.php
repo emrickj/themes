@@ -8,7 +8,8 @@
    $si=(include 'dspcnt.php') or die("<br><br>Error: Unable to access 'dspcnt.php'.  Make sure this file is in the directory where the theme file is.");
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("<br><br>Error: Cannot create object, please make sure that 'website".$b.".xml' is in the 'data' directory.");
-   $page=$xml->xpath("/website/page[position()=".$p."]");
+   $page=$xml->xpath("/website/page[".$p."]");
+   changeLinks($page);
    
    function ic_html($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = '<i class="fa">'.substr($pname,0,3).'</i> '.substr($pname,4);
@@ -47,7 +48,7 @@
 <!-- Navigation bar -->
 <div class="w3-bar w3-black">
   <?php
-  $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+  $pn=$xml->xpath("/website/page/name[.!='']");
   $i=1;
   foreach ($pn as $item) {
 	if($i==$p && $w=="1" && $name=="") $bs=" w3-gray"; else $bs="";
@@ -77,7 +78,7 @@
 
 <div class="w3-container">
 <?php
-  if($name=="") dispContents($p,ltrim($b,"_"),$w);
+  if($name=="") echo $page[0]->contents;
   else if(sendDb($name,$phone,$email,$message))
           echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
        else echo "<b>Missing Name or Contact Info.</b>";

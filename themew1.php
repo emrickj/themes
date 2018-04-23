@@ -9,8 +9,9 @@
 
    $xml=simplexml_load_file("data/website".$b.".xml") or die("Error: Cannot create object");
    $xml2=simplexml_load_file("data/website2.xml") or die("Error: Cannot create object");
-   $xpath="/website/page[position()=".$p."]";
+   $xpath="/website/page[".$p."]";
    if ($w=="2") $page = $xml2->xpath($xpath); else $page = $xml->xpath($xpath);
+   changeLinks($page);
    
    function ic_html($pname) {
       if (strpos(" ".$pname,chr(0xef))==1) $rt = '<i class="fa">'.substr($pname,0,3).'</i> '.substr($pname,4);
@@ -46,7 +47,7 @@ t1 { white-space: pre-wrap;}
  style="width:200px;" id="mySidebar">
 <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
   <?php
-  $pn=$xml->xpath("/website/page/name[string-length()!=0]");
+  $pn=$xml->xpath("/website/page/name[.!='']");
   $i=1;
   foreach ($pn as $item) {
     if($i==$p && $w=="1" && $name=="") $bs=" w3-gray"; else $bs="";
@@ -57,7 +58,7 @@ t1 { white-space: pre-wrap;}
     <button class="w3-button w3-cyan"><?php echo strip_tags($xml2->title) ?> <i class="fa fa-caret-down"></i></button>
     <div class="w3-dropdown-content w3-bar-block">
       <?php
-	  $pn2=$xml2->xpath("/website/page/name[string-length()!=0]");
+	  $pn2=$xml2->xpath("/website/page/name[.!='']");
 	  $i=1;
       foreach ($pn2 as $item) {
          if($i==$p && $w=="2" && $name=="") $bs=" w3-gray"; else $bs="";
@@ -84,7 +85,7 @@ t1 { white-space: pre-wrap;}
 
 <div class="w3-container">
 <?php
-  if($name=="") dispContents($p,ltrim($b,"_"),$w);
+  if($name=="") echo $page[0]->contents;
   else if(sendDb($name,$phone,$email,$message))
           echo "<b>Contact information submitted.  We will contact you as soon as possible.</b>";
        else echo "<b>Missing Name or Contact Info.</b>";
