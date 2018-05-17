@@ -21,15 +21,15 @@ website_theme:
     cssf: Bootstrap 4
     pwfn:
   - name: 1b4a
-    desc: Vertical Button 2
+    desc: Sunset
     cssf: Bootstrap 4
     pwfn: 511
   - name: 1b4b
-    desc: Vertical Button 3
+    desc: Marathon
     cssf: Bootstrap 4
     pwfn: 501
   - name: 1b4g
-    desc: Vertical Button, gradient theme
+    desc: Tower
     cssf: Bootstrap 4
     pwfn: 512
   - name: 2
@@ -125,11 +125,11 @@ website_theme:
     cssf: Bootstrap 4
     pwfn: 511
   - name: 2cda
-    desc: Navigation Bar, card style 2
+    desc: Key Largo
     cssf: Bootstrap 4
     pwfn: 500
   - name: 2cdb
-    desc: Navigation Bar, card style 3
+    desc: Stirling
     cssf: Bootstrap 4
     pwfn: 508
   - name: 2cdsu
@@ -157,11 +157,11 @@ website_theme:
     cssf: Bootstrap 3
     pwfn: 501
   - name: 4a
-    desc: Scrollspy Vertical Menu 2
+    desc: Ultron
     cssf: Bootstrap 3
     pwfn: 501
   - name: 4b
-    desc: Scrollspy Vertical Menu 3
+    desc: Eclipse
     cssf: Bootstrap 3
     pwfn: 501
   - name: 4b4
