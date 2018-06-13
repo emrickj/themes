@@ -49,7 +49,7 @@
 			  </ul>
 			</div>
 		</nav>
-		<div class='card-body'><?php
+		<div class='card-body' style='min-height: 1px;'><?php
 		if(strlen($page[0]->image)>4)
 		   echo "<img class='img-fluid' style='display: block;margin: auto;' src='".$page[0]->image."'>\n";
 		if($name=="") echo $page[0]->contents;

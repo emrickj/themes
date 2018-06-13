@@ -54,7 +54,7 @@
 	<div class="card bg-light">
 		<?php
 		if(strlen($page[0]->image)>4)
-		   echo "<img class='card-img-top' id='pgimg' src='".$page[0]->image."' alt='Card image'>\n";
+		   echo "<img class='card-img-top' id='pgimg' src='".$page[0]->image."' alt='Card image' style='min-height: 1px;'>\n";
 		?>
 		<nav class="navbar navbar-expand-md bg-primary navbar-dark">
 		  <a class="navbar-brand" href="#"><?php echo $xml->title ?></a>
@@ -70,7 +70,7 @@
 			  </ul>
 			</div>
 		</nav>
-		<div class='card-body'><?php
+		<div class='card-body' style='min-height: 1px;'><?php
 		if($name=="") echo $page[0]->contents;
 		   else if(sendEmail($name,$email,$subject,$message))
 			  echo "Contact Information Submitted.  Thank you.";

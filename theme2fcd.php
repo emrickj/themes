@@ -55,7 +55,7 @@
 			<div class="card bg-light">
 						<?php
 						if(strlen($page[0]->image)>4)
-						   echo "<img class='card-img-top' src='".$page[0]->image."' alt='Card image'>\n";
+						   echo "<img class='card-img-top' src='".$page[0]->image."' alt='Card image' style='min-height: 1px;'>\n";
 					    echo "<div class='card-body'>\n";
                         if($name=="") echo $page[0]->contents;
                            else if(sendEmail($name,$email,$subject,$message))

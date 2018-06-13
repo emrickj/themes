@@ -81,7 +81,7 @@
 	   </div>
 		<?php
 		if(strlen($page[0]->image)>4)
-		   echo "<img src='".$page[0]->image."' style='width: 100%;height: auto;'>\n";
+		   echo "<img src='".$page[0]->image."' style='width: 100%;height: auto;min-height: 1px;'>\n";
 		?>
 	   <div class="card-body bg-light">
 				<?php

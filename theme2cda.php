@@ -37,7 +37,7 @@
 	<div class="card bg-light">
 		<?php
 		if(strlen($page[0]->image)>4)
-		   echo "<img class='card-img-top' src='".$page[0]->image."' alt='Card image'>\n";
+		   echo "<img class='card-img-top' src='".$page[0]->image."' alt='Card image' style='min-height: 1px;'>\n";
 		?>
 		<nav class="navbar navbar-expand-md bg-primary navbar-dark">
 		  <a class="navbar-brand" href="#"><?php echo $xml->title ?></a>

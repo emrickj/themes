@@ -93,7 +93,7 @@
            <div class="card bg-light">
 				 <?php
 				   if(strlen($page[0]->image)>4)
-					  echo "<img class='card-img-top' src='".$page[0]->image."'>\n";
+					  echo "<img class='card-img-top' src='".$page[0]->image."' style='min-height: 1px;'>\n";
 				 ?>
                <div class="card-body">
 					 <?php
