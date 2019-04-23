@@ -124,6 +124,10 @@ website_theme:
     desc: Navigation Bar, fixed-top, card style
     cssf: Bootstrap 4
     pwfn: 511
+  - name: 2dt
+    desc: Navigation Bar, dark theme
+    cssf: Bootstrap 4
+    pwfn: 512
   - name: 2cda
     desc: Key Largo
     cssf: Bootstrap 4
